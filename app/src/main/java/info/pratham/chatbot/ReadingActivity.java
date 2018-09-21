@@ -2,6 +2,7 @@ package info.pratham.chatbot;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.AudioManager;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
@@ -29,7 +30,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ReadingActivity extends AppCompatActivity implements RecognitionListener {
+public class ReadingActivity extends AppCompatActivity {
 
     @BindView(R.id.myflowlayout2)
     FlowLayout quesFlowLayout;
@@ -47,7 +48,9 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
     Intent intent;
     JSONArray actualReadingData;
     String splitQues[];
-
+    boolean voiceStart = false;
+    private SpeechRecognizer speech = null;
+    public RecognitionListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +61,80 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
 
         selectedLanguage = "english";
 
+        speech = SpeechRecognizer.createSpeechRecognizer(this);
+
 
         startSTTIntent();
 
+        listener = new RecognitionListener() {
+            @Override
+            public void onReadyForSpeech(Bundle params) {
+
+            }
+
+            @Override
+            public void onBeginningOfSpeech() {
+
+            }
+
+            @Override
+            public void onRmsChanged(float rmsdB) {
+
+            }
+
+            @Override
+            public void onBufferReceived(byte[] buffer) {
+
+            }
+
+            @Override
+            public void onEndOfSpeech() {
+            }
+
+            @Override
+            public void onError(int error) {
+                voiceStart = false;
+            }
+
+            @Override
+            public void onResults(Bundle results) {
+                voiceStart = false;
+            }
+
+            @Override
+            public void onPartialResults(Bundle partialResults) {
+                System.out.println("LogTag"+ " onResults");
+                ArrayList<String> matches = partialResults
+                        .getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
+
+
+                String sttResult = matches.get(0);
+                String sttQuestion = mySentence;
+
+                Log.d("STT-Res", "sttResult: " + sttResult + "             sttQuestion: " + sttQuestion);
+
+                String splitQues[] = sttQuestion.split(" ");
+                String splitRes[] = sttResult.split(" ");
+                String splitPrevRes[] = finalData.split(" ");
+
+
+                for (int i = 0; i < splitQues.length; i++) {
+                    final TextView myView = (TextView) quesFlowLayout.getChildAt(i);
+                    String resString = ""+myView.getText();
+                    for (int j = 0; j < splitRes.length; j++) {
+                        if(splitRes[j].equalsIgnoreCase(resString)) {
+                            myView.setTextColor(Color.GREEN);
+                        }
+                    }
+                }
+
+            }
+
+            @Override
+            public void onEvent(int eventType, Bundle params) {
+
+            }
+        };
     }
 
 
@@ -114,6 +188,29 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
         return returnStoryNavigate;
     }
 
+    @OnClick(R.id.btnMic)
+    public void micActive() {
+        if (!voiceStart) {
+            voiceStart = true;
+            finalData="";
+            startSpeechInput();
+        } else {
+            stopSpeechInput();
+            voiceStart = false;
+            stopSpeechInput();
+        }
+    }
+
+    private void stopSpeechInput() {
+        speech.stopListening();
+    }
+
+    private void startSpeechInput() {
+        speech.setRecognitionListener(listener);
+        speech.startListening(intent);
+    }
+
+
     @OnClick(R.id.btnNext)
     public void getNextSentence() {
         quesFlowLayout.removeAllViewsInLayout();
@@ -136,72 +233,5 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
 
     }
 
-    @Override
-    public void onReadyForSpeech(Bundle params) {
 
-    }
-
-    @Override
-    public void onBeginningOfSpeech() {
-
-    }
-
-    @Override
-    public void onRmsChanged(float rmsdB) {
-
-    }
-
-    @Override
-    public void onBufferReceived(byte[] buffer) {
-
-    }
-
-    @Override
-    public void onEndOfSpeech() {
-
-    }
-
-    @Override
-    public void onError(int error) {
-
-    }
-
-    @Override
-    public void onResults(Bundle results) {
-
-    }
-
-    @Override
-    public void onPartialResults(Bundle partialResults) {
-        System.out.println("LogTag"+ " onResults");
-        ArrayList<String> matches = partialResults
-                .getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
-
-
-        String sttResult = matches.get(0);
-        String sttQuestion = mySentence;
-
-        Log.d("STT-Res", "sttResult: " + sttResult + "             sttQuestion: " + sttQuestion);
-
-        String splitQues[] = sttQuestion.split(" ");
-        String splitRes[] = sttResult.split(" ");
-        String splitPrevRes[] = finalData.split(" ");
-
-
-        for (int i = 0; i < splitQues.length; i++) {
-            final TextView myView = (TextView) quesFlowLayout.getChildAt(i);
-            String resString = ""+myView.getText();
-            for (int j = 0; j < splitRes.length; j++) {
-                if(splitRes[j].equalsIgnoreCase(resString)) {
-                    myView.setTextColor(Color.GREEN);
-                }
-            }
-        }
-
-    }
-
-    @Override
-    public void onEvent(int eventType, Bundle params) {
-
-    }
 }
