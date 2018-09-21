@@ -87,8 +87,9 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
+                    android:padding="5dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/round_button_normal"
                     android:weightSum="10">
 
                     <ImageButton
@@ -98,7 +99,7 @@
                         android:layout_weight="7"
                         android:background="@null"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/ic_speaker"/>
+                        android:src="@drawable/speaker"/>
 
                     <TextView
                         android:id="@+id/tv_SlowHere"
@@ -107,8 +108,8 @@
                         android:layout_weight="3"
                         android:fontFeatureSettings=""
                         android:gravity="center"
-                        android:text="Slow Here"
-                        android:textColor="#f7f7f7"
+                        android:text="Slow Hear"
+                        android:textColor="@color/simple_black"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -119,8 +120,9 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
+                    android:padding="5dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/round_button_normal"
                     android:weightSum="10">
 
                     <ImageButton
@@ -130,7 +132,7 @@
                         android:layout_weight="7"
                         android:background="@null"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/ic_speaker" />
+                        android:src="@drawable/speaker" />
 
                     <TextView
                         android:id="@+id/tv_Hear"
@@ -140,7 +142,7 @@
                         android:fontFeatureSettings=""
                         android:gravity="center"
                         android:text="Hear"
-                        android:textColor="#f7f7f7"
+                        android:textColor="@color/simple_black"
                         android:textSize="18sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -150,8 +152,9 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
+                    android:padding="5dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/round_button_normal"
                     android:weightSum="10">
 
                     <ImageButton
@@ -161,7 +164,7 @@
                         android:layout_weight="7"
                         android:background="@null"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/ic_nextbtn" />
+                        android:src="@drawable/next" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -170,7 +173,7 @@
                         android:fontFeatureSettings=""
                         android:gravity="center"
                         android:text="Next"
-                        android:textColor="#f7f7f7"
+                        android:textColor="@color/simple_black"
                         android:textSize="18sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -183,8 +186,10 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
-            android:layout_weight="10"
-            android:orientation="horizontal"
+            android:layout_weight="15"
+            android:layout_marginBottom="5dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/trans_blue_stroke"
             android:paddingHorizontal="10dp"
             android:weightSum="10">
 
@@ -192,10 +197,10 @@
                 android:id="@+id/btnMic"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="7"
-                android:background="@drawable/trans_blue_stroke"
+                android:layout_marginVertical="5dp"
+                android:background="@null"
                 android:scaleType="fitCenter"
-                android:src="@drawable/ic_mic" />
+                android:src="@drawable/microphone" />
 
         </LinearLayout>
 
