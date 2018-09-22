@@ -1,54 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/llbgg"
+    android:background="@drawable/orangebgnew"
+    android:orientation="vertical"
+    android:weightSum="10"
     tools:context=".MenuActivity">
 
     <TextView
-        android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/simple_black"
-        android:textAlignment="center"
-        android:layout_marginTop="50dp"
-        android:textSize="18sp"
-        android:text="Welcome To Reading and Chatbot App"/>
-
-    <TextView
-        android:layout_above="@+id/ll_center"
-        android:layout_width="match_parent"
-        android:text="Choose Level"
-        android:textAlignment="center"
-        android:layout_marginBottom="50dp"
-        android:textColor="@color/simple_black"
-        android:layout_height="wrap_content" />
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:background="@color/blackTransparent"
+        android:gravity="center"
+        android:text="Welcome"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:id="@+id/ll_center"
-        android:layout_centerInParent="true"
         android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
         android:gravity="center"
-        android:layout_height="wrap_content">
+        android:orientation="vertical"
+        android:weightSum="10">
 
-        <Button
-            android:id="@+id/btn_chat"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:paddingVertical="20dp"
-            android:layout_marginRight="10dp"
-            android:text="Chat" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="bottom|center"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:gravity="bottom|center">
 
-        <Button
-            android:id="@+id/btn_reading"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:paddingVertical="20dp"
-            android:text="Reading" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Select Language"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textSize="28sp"
+                android:textColor="@color/simple_black"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/rg_Language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginHorizontal="25dp"
+                android:layout_weight="2"
+                android:checkedButton="@+id/rb_English"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/rb_English"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="English"
+                    android:textColor="@color/simple_black"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/rb_Hindi"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:text="Hindi"
+                    android:textColor="@color/simple_black"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="7"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_chat"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:background="@drawable/btn_chat_selector"
+                    android:paddingVertical="20dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Chat"
+                    android:textAlignment="center"
+                    android:textColor="@color/simple_black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_reading"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:background="@drawable/btn_reading_selector"
+                    android:paddingVertical="20dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Reading"
+                    android:textAlignment="center"
+                    android:textColor="@color/simple_black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
-</RelativeLayout>
+    <!--    <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="Welcome To Reading and Chatbot App"
+            android:textAlignment="center"
+            android:textColor="@color/simple_black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/ll_center"
+            android:layout_marginBottom="50dp"
+            android:text="Choose Level"
+            android:textAlignment="center"
+            android:textColor="@color/simple_black" />
+
+    -->
+
+</LinearLayout>

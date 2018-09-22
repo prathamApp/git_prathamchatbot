@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/llbgg"
+    android:background="@color/white"
     tools:context=".SplashActivity">
 
     <ImageView
         android:id="@+id/iv_splash"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo"
+        android:src="@drawable/pratham_slate_logo"
         android:layout_centerInParent="true"/>
 
     <Button
@@ -21,6 +21,8 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp"
         android:text="Start"
+        android:textColor="@color/simple_black"
+        android:background="@drawable/round_button_selector"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
