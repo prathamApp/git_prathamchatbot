@@ -11,12 +11,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_weight="1"
         android:background="@color/blackTransparent"
         android:gravity="center"
         android:text="Welcome"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -41,8 +41,9 @@
                 android:layout_height="wrap_content"
                 android:text="Select Language"
                 android:textAlignment="center"
+                android:layout_marginTop="20dp"
                 android:textAllCaps="true"
-                android:textSize="28sp"
+                android:textSize="22sp"
                 android:textColor="@color/simple_black"
                 android:textStyle="bold" />
 
@@ -50,11 +51,11 @@
                 android:id="@+id/rg_Language"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
+                android:layout_gravity="bottom|center"
                 android:layout_marginHorizontal="25dp"
                 android:layout_weight="2"
                 android:checkedButton="@+id/rb_English"
-                android:gravity="center"
+                android:gravity="center|center_horizontal"
                 android:orientation="vertical">
 
                 <RadioButton
@@ -64,7 +65,7 @@
                     android:layout_weight="1"
                     android:text="English"
                     android:textColor="@color/simple_black"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <RadioButton
@@ -75,7 +76,7 @@
                     android:layout_weight="1"
                     android:text="Hindi"
                     android:textColor="@color/simple_black"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
             </RadioGroup>
 
