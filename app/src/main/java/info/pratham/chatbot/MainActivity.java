@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
     public void fillWithNonsenseText() {
         messageList.add(new Message(1,"Hello", "Chryssa"));
         messageList.add(new Message(2,"Hello", "JavaCodeGeeks"));
-        messageList.add(new Message(3,"This is an example about RecyclerView", "Chryssa"));
+        messageList.add(new Message(3,"This is an example about RecyclerView This is an example about RecyclerView", "Chryssa"));
         messageList.add(new Message(4,"Great news!", "JavaCodeGeeks"));
         messageList.add(new Message(5,"Enjoy reading!", "Chryssa"));
         messageList.add(new Message(6,"You too", "JavaCodeGeeks"));
