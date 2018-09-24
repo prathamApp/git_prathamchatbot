@@ -10,6 +10,7 @@ import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.animation.Animation;
@@ -24,6 +25,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import butterknife.BindView;
@@ -51,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
     public RecognitionListener listener;
     Bitmap send, mic;
     boolean flagSend;
+    private RecyclerView.Adapter mAdapter;
+    private List messageList = new ArrayList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +66,12 @@ public class MainActivity extends AppCompatActivity {
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);
-        initialiseAdapter(linearLayoutManager);
+
+        mAdapter = new MessageAdapter(getBaseContext(), messageList);
+        recyclerView.setAdapter(mAdapter);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        fillWithNonsenseText();
+        /*initialiseAdapter(linearLayoutManager);
         selectedLanguage = "english";
         send = BitmapFactory.decodeResource(getResources(), R.drawable.ic_send_white_24dp);
         mic = BitmapFactory.decodeResource(getResources(), R.drawable.ic_mic_white_24dp);
@@ -74,7 +84,47 @@ public class MainActivity extends AppCompatActivity {
             displayText.setText(conversation.getJSONObject(currentQueNo).getString("Que"));
         } catch (JSONException e) {
             e.printStackTrace();
-        }
+        }*/
+    }
+
+    public void fillWithNonsenseText() {
+        messageList.add(new Message(1,"Hello", "Chryssa"));
+        messageList.add(new Message(2,"Hello", "JavaCodeGeeks"));
+        messageList.add(new Message(3,"This is an example about RecyclerView", "Chryssa"));
+        messageList.add(new Message(4,"Great news!", "JavaCodeGeeks"));
+        messageList.add(new Message(5,"Enjoy reading!", "Chryssa"));
+        messageList.add(new Message(6,"You too", "JavaCodeGeeks"));
+        messageList.add(new Message(7,"Hello", "Chryssa"));
+        messageList.add(new Message(8,"Hello", "JavaCodeGeeks"));
+        messageList.add(new Message(9,"This is an example about RecyclerView", "Chryssa"));
+        messageList.add(new Message(10,"Great news!", "JavaCodeGeeks"));
+        messageList.add(new Message(11,"Enjoy reading!", "Chryssa"));
+        messageList.add(new Message(12,"You too", "JavaCodeGeeks"));
+        messageList.add(new Message(13,"Hello", "Chryssa"));
+        messageList.add(new Message(14,"Hello", "JavaCodeGeeks"));
+        messageList.add(new Message(15,"This is an example about RecyclerView", "Chryssa"));
+        messageList.add(new Message(16,"Great news!", "JavaCodeGeeks"));
+        messageList.add(new Message(17,"Enjoy reading!", "Chryssa"));
+        messageList.add(new Message(18,"You too", "JavaCodeGeeks"));
+
+        messageList.add(new Message(19,"Hello", "Chryssa"));
+        messageList.add(new Message(20,"Hello", "JavaCodeGeeks"));
+        messageList.add(new Message(21,"This is an example about RecyclerView", "Chryssa"));
+        messageList.add(new Message(22,"Great news!", "JavaCodeGeeks"));
+        messageList.add(new Message(23,"Enjoy reading!", "Chryssa"));
+        messageList.add(new Message(24,"You too", "JavaCodeGeeks"));
+        messageList.add(new Message(25,"Hello", "Chryssa"));
+        messageList.add(new Message(26,"Hello", "JavaCodeGeeks"));
+        messageList.add(new Message(27,"This is an example about RecyclerView", "Chryssa"));
+        messageList.add(new Message(28,"Great news!", "JavaCodeGeeks"));
+        messageList.add(new Message(29,"Enjoy reading!", "Chryssa"));
+        messageList.add(new Message(30,"You too", "JavaCodeGeeks"));
+        messageList.add(new Message(31,"Hello", "Chryssa"));
+        messageList.add(new Message(32,"Hello", "JavaCodeGeeks"));
+        messageList.add(new Message(33,"This is an example about RecyclerView", "Chryssa"));
+        messageList.add(new Message(34,"Great news!", "JavaCodeGeeks"));
+        messageList.add(new Message(35,"Enjoy reading!", "Chryssa"));
+        messageList.add(new Message(36,"You too", "JavaCodeGeeks"));
     }
 
     private void initialiseAdapter(final LinearLayoutManager linearLayoutManager) {

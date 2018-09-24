@@ -10,12 +10,10 @@ public class ChatMessage {
     public ChatMessage(String msgText, String msgUser){
         this.msgText = msgText;
         this.msgUser = msgUser;
-
     }
 
 
     public ChatMessage(){
-
     }
 
     public String getMsgText() {
