@@ -6,17 +6,30 @@
     android:layout_height="match_parent"
     tools:context="info.pratham.chatbot.MainActivity">
 
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/blackTransparent"
+        android:gravity="center"
+        android:text="Chatbot"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="10dp"
-        android:paddingBottom="60dp"
         android:clipToPadding="false"
+        android:layout_below="@+id/header"
+        android:layout_above="@+id/rl_chat"
         android:background="#f4f6f7"
         />
 
     <RelativeLayout
+        android:id="@+id/rl_chat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">

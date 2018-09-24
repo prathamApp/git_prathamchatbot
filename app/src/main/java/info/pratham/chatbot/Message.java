@@ -2,12 +2,10 @@ package info.pratham.chatbot;
 
 public class Message {
 
-    protected int id;
     protected String message;
     protected String senderName;
 
-    public Message(int id, String message, String senderName) {
-        this.id = id;
+    public Message(String message, String senderName) {
         this.message = message;
         this.senderName = senderName;
     }
@@ -27,13 +25,4 @@ public class Message {
     public void setMessage(String message) {
         this.message = message;
     }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
 }

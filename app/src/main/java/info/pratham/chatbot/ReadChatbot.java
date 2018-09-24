@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.Handler;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
@@ -35,7 +34,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
-public class MainActivity extends AppCompatActivity {
+public class ReadChatbot extends AppCompatActivity {
 
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
@@ -110,14 +109,14 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onError(int error) {
-                Toast.makeText(MainActivity.this, "Can't hear you", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ReadChatbot.this, "Can't hear you", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onResults(Bundle results) {
                 flagSend = true;
                 displayText.setText(results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION).get(0));
-                ImageViewAnimatedChange(MainActivity.this, fab_img, send);
+                ImageViewAnimatedChange(ReadChatbot.this, fab_img, send);
             }
 
             @Override
@@ -154,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
     public void clearText() {
         displayText.setText("");
         flagSend = false;
-        ImageViewAnimatedChange(MainActivity.this, fab_img, mic);
+        ImageViewAnimatedChange(ReadChatbot.this, fab_img, mic);
     }
 
     @OnClick(R.id.speakButton)
@@ -165,12 +164,11 @@ public class MainActivity extends AppCompatActivity {
             checkAnswer(displayText.getText().toString());
             displayText.setText("");
             setReplyResultForNextQuestion();
-            ImageViewAnimatedChange(MainActivity.this, fab_img, mic);
+            ImageViewAnimatedChange(ReadChatbot.this, fab_img, mic);
         } else {
             speech.startListening(intent);
         }
         mAdapter.notifyDataSetChanged();
-        recyclerView.scrollToPosition(mAdapter.getItemCount()-1);
     }
 
     private void checkAnswer(String userAnswer) {
