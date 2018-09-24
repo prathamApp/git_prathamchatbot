@@ -22,8 +22,6 @@ public class chatTemp extends AppCompatActivity {
     Button btnLeft;
     @BindView(R.id.btnRight)
     Button btnRight;
-    @BindView(R.id.chatFlow)
-    FlowLayout chatFlow;
     int i;
 
     @Override
@@ -32,7 +30,6 @@ public class chatTemp extends AppCompatActivity {
         setContentView(R.layout.activity_chat_temp);
         ButterKnife.bind(this);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        chatFlow.removeAllViewsInLayout();
         i=0;
 
     }
