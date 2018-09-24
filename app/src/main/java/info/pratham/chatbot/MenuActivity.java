@@ -63,6 +63,17 @@ public class MenuActivity extends AppCompatActivity {
 
     @OnClick( R.id.chatTemp)
     public void StartChatTemp(){
-        startActivity(new Intent(MenuActivity.this, chatTemp.class));
+        int selectedId = rgLanguage.getCheckedRadioButtonId();
+        radioButton = (RadioButton) findViewById(selectedId);
+        String selectedLang = (String) radioButton.getText();
+
+        if(selectedLang.equalsIgnoreCase("english"))
+            sysLang="en-IN";
+        else
+            sysLang="hi-IN";
+
+        Intent intent = new Intent(MenuActivity.this, ReadingActivity.class);
+        intent.putExtra("selectedLang", selectedLang);
+        startActivity(intent);
     }
 }

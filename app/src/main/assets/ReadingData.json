@@ -4,64 +4,124 @@
       "language": "Hindi",
       "sentences": [
         {
-          "data": "एक बहुत ही अजीबोगरीब इलाका था"
+          "data": "एक बहुतही अजीबो-गरीब इलाका था"
         },
         {
           "data": "ऐसा मत करना वरना चीटियाँ तुम्हे खा जायेंगी"
         },
         {
-          "data": "चारो दोस्त अपने अपने घर के लिए निकल पड़े"
+          "data": "चारों दोस्त अपने अपने घर के लिए निकल पड़े"
         },
         {
-          "data":"पेड़ के पीछे घनी पत्तियों के पीछे छुपा लडका सब देख रहा था"
+          "data": "पेड़ के पीछे घनी पत्तियों में छुपा लडका सब देख रहा था"
         },
         {
-          "data":"इधर उधर देखने के बाद वह पानी में कूद गया"
+          "data": "इधर उधर देखने के बाद वह पानी में कूद गया"
         },
         {
-          "data":"यह सोलाह्वी शताव्दी की बात है"
+          "data": "यह सोलाह्वी शताब्दीकी बात है"
         },
         {
-          "data":"आप सभी माँ से इजाजत लेकर आएं हैं ना"
+          "data": "हम सभी माँ से इजाजत लेकर आएं हैं"
         },
         {
-          "data":"सिनेमाएक लोकप्रिय माध्यम हैं"
+          "data": "सिनेमाएक लोकप्रिय माध्यम हैं"
         },
         {
-          "data":"साइकिल की वजह से बसोंके इन्तजार में व्यव होने वाला उनका समय बच जाता है"
+          "data": "साइकिल की वजह से बसोंके इन्तजार में व्यव होने वाला उनका समय बच जाता है"
         },
         {
-          "data":"आज शनिवार है, हफ्ते का अंतिम दिन"
+          "data": "आज शनिवार है हफ्ते का अंतिम दिन"
         },
         {
-          "data":"इससे पहले की कोई समज पाता बस निकल गई"
+          "data": "इससे पहले की कोई समज पाता बस निकल गई"
         },
         {
-          "data":"तुम्हारा मतलब हैं कि अब यहाँ पक्षी नहीं दिखेंगे"
+          "data": "तुम्हारा मतलब हैं कि अब यहाँ पक्षी नहीं दिखाई देंगे"
         },
         {
-          "data":"वहाँ एक डाली पर बहुत सारे कबूतर बैठे थे"
+          "data": "वहाँ एक डाली पर बहुत सारे कबूतर बैठे थे"
         },
         {
-          "data":"यहाँ से दिल्ली जाने के लिए 20 घंटे लग जाएंगे"
+          "data": "यहाँ से दिल्ली जाने के लिए 20 घंटे लग जाएंगे"
         },
         {
-          "data":"मोना और सोनी दोनों साथ साथ स्कूल जाते थे"
+          "data": "मोना और सोनी दोनों साथ साथ स्कूल जाते थे"
         },
         {
-          "data":"इस किताब में बस दस कहानियाँ हैं"
+          "data": "इस किताब में बस दस कहानियाँ हैं"
         },
         {
-          "data":"पहले पांचसो रूपये गिनकर दे दीजिएं"
+          "data": "पहले पांचसो रूपये गिनकर दे दीजिएं"
         },
         {
-          "data":"हमारे सारे दिन आनंद से कटने के बाद अब निकलने का समय आ गया था"
+          "data": "हमारे सारे दिन आनंद से कटने के बाद अब निकलने का समय आ गया था"
         },
         {
-          "data":"पृथ्वी का तापमान लगातार बढ़ रहा हैं"
+          "data": "पृथ्वी का तापमान लगातार बढ़ रहा हैं"
         },
         {
-          "data":"उनके सर पर टोपी कितनी अच्छी लगटी है"
+          "data": "उनके सर पर टोपी कितनी अच्छी लगती हैं"
+        },
+        {
+          "data": "मेरे मित्र ने पुस्तक पढ़ी"
+        },
+        {
+          "data": "तुम शीघ्र घर जाओ"
+        },
+        {
+          "data": "हमें मित्रोंकी सहायता करनी चाहिए"
+        },
+        {
+          "data": "पेड़ से पत्ते गिरते हैं"
+        },
+        {
+          "data": "सभी छात्र पत्र लिखेंगे"
+        },
+        {
+          "data": "यह नगरी विविध कलाओं के लिए प्रसिद्ध हैं"
+        },
+        {
+          "data": "जंगल में मोर नाच रहे हैं"
+        },
+        {
+          "data": "मोहन घर गया"
+        },
+        {
+          "data": "यदी गर्मी पडती तो पानी बरसता"
+        },
+        {
+          "data": "शिक्षिका ने बहुत सरल सवाल पूछे"
+        },
+        {
+          "data": "गोलू बहुत सीधा साधा था"
+        },
+        {
+          "data": "यह रास्ता सीधे वही जाता है"
+        },
+        {
+          "data": "चीड़ कीनरम लकड़ी से तेल निकालते हैं"
+        },
+        {
+          "data": "माँ कल सुबह ट्रेन से आएगी"
+        },
+        {
+          "data": "मोहन हिन्दी पढने शीला के घर गया है"
+        },
+        {
+          "data": "मैं बस में चढ़ गया"
+        },
+        {
+          "data": "रविवार छुट्टी का दिन है"
+        },
+        {
+          "data": "हम सब कल पटना के लिए निकलेंगे"
+        },
+        {
+          "data": "भारत का राष्ट्रिय पक्षी मोर है"
+        },
+        {
+          "data": "बकरी शेर से नहीं डरी और उसने लम्बी छलांग मारी"
         }
       ]
     },
@@ -69,67 +129,7 @@
       "language":"English",
       "sentences":[
         {
-          "data":"The Sal tree was more than a hundred years old"
-        },
-        {
-          "data":"The carpenter made beautiful wooden toys for the village"
-        },
-        {
-          "data":"The density of oil is lower than that of water"
-        },
-        {
-          "data":"The birds have different beaks which adjusted to their diet"
-        },
-        {
-          "data":"Around 6000 languages are spoken in the world today"
-        },
-        {
-          "data":"A country in an area of land under the rule of a single government"
-        },
-        {
-          "data":"In India, most people buy fresh produce at street markets"
-        },
-        {
-          "data":"Paper money was first used in China a thousand years ago"
-        },
-        {
-          "data":"Camels are the only animals that can survive long enough without food and water"
-        },
-        {
-          "data":"Things freeze from liquid to solid when they reach the freezing point"
-        },
-        {
-          "data":"Antarctica  is sometimes called a cold desert"
-        },
-        {
-          "data":"Different sides of a mountain have different climate"
-        },
-        {
-          "data":"The blue whale is the largest whale and also the largest mammal"
-        },
-        {
-          "data":"Muscles make parts of your body move"
-        },
-        {
-          "data":"Wheat is one of the oldest known crops "
-        },
-        {
-          "data":"The king promised to build a huge well for the people"
-        },
-        {
-          "data":"All I need is a cooking pot, a spoon and some water"
-        },
-        {
-          "data":"All day long he supervised cargo being loaded on the ship"
-        },
-        {
-          "data":"Once a goat was grazing quietly in the field"
-        },
-        {
-          "data":"The terrain is nearly all mountainous with deep gorges snowcapped peaks lush valleys and placid lakes"
-        },
-        {
-          "data":"The boy is playing with the ball"
+          "data":"A boy is playing with the ball"
         },
         {
           "data":"Children are swimming in the ocean"
@@ -138,13 +138,13 @@
           "data":"The Nilgiri mountains are in South India"
         },
         {
-          "data":"The train leaves at 5 o'clock in the evening"
+          "data":"The train departs at 5 o'clock in the evening"
         },
         {
-          "data":"The cricket stadium is only half full today"
+          "data":"The cricket stadium is almost empty today"
         },
         {
-          "data":"These are not found in other parts of India"
+          "data":"These plants are not found in other parts of India"
         },
         {
           "data":"Sunflower and roses grow in winter"
@@ -156,13 +156,13 @@
           "data":"Deepa is scared of going to the doctor"
         },
         {
-          "data":"This river flows through seven states"
+          "data":"Ganga flows through five states"
         },
         {
-          "data":"The tiger is the national animal of India"
+          "data":"The Tiger is national animal of India"
         },
         {
-          "data":"My school bus does not go your lane"
+          "data":"My school bus does not go in to your lane"
         },
         {
           "data":"Sonu and her friends are watching a hockey match"
@@ -183,10 +183,70 @@
           "data":"France won the football world cup in 2018"
         },
         {
-          "data":"The people of Maharashtra speak Marathi"
+          "data":"The people of Maharashtra speak Marathi "
         },
         {
           "data":"Life is made of small and great moments"
+        },
+        {
+          "data":"Sal tree can survive for more than a hundred years"
+        },
+        {
+          "data":"He made beautiful wooden toys for children in the village"
+        },
+        {
+          "data":"The density of oil is lower than that of water"
+        },
+        {
+          "data":"The birds have different beaks according to their diet"
+        },
+        {
+          "data":"Around 6000 languages are spoken in the world today"
+        },
+        {
+          "data":"A country is an area of land under the rule of a single government "
+        },
+        {
+          "data":"Most people in India buy fresh produce at street markets"
+        },
+        {
+          "data":"Paper money was first used in China a thousand years ago"
+        },
+        {
+          "data":"Camels are the only animals that can survive long enough without food and water in a desert"
+        },
+        {
+          "data":"Things freeze from liquid to solid when they reach the freezing point"
+        },
+        {
+          "data":"Antarctica  is sometimes called a cold desert"
+        },
+        {
+          "data":"Different sides of a mountain have different climate"
+        },
+        {
+          "data":"The blue whale is the largest whale and also the largest mammal"
+        },
+        {
+          "data":"Muscles make parts of your body move"
+        },
+        {
+          "data":"Wheat is one of the oldest known crops"
+        },
+        {
+          "data":"The king promised to build a huge well for the people"
+        },
+        {
+          "data":"All I need is a cooking pot and some water"
+        },
+        {
+          "data":"All day long he watchedfishes caught in the net"
+        },
+        {
+          "data": "A goat was grazing quietly in the field"
+        },
+        {
+          "data": "The terrain is nearly all mountainous with  lush valleys and placid lakes"
         }
       ]
     }

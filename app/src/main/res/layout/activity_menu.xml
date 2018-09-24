@@ -6,6 +6,8 @@
     android:background="@drawable/orangebgnew"
     android:orientation="vertical"
     android:weightSum="10"
+    android:layout_gravity="center"
+    android:gravity="center"
     tools:context=".MenuActivity">
 
     <TextView
@@ -149,7 +151,10 @@
 
     <Button
         android:id="@+id/chatTemp"
-        android:layout_width="match_parent"
+        android:background="@drawable/ripple_effect"
+        android:layout_width="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:text="CLICK here"
         android:layout_height="0dp"
         android:layout_weight="1"
         />
