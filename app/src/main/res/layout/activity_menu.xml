@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="0.8"
         android:background="@color/blackTransparent"
         android:gravity="center"
         android:text="Welcome"
@@ -145,6 +145,14 @@
 
 
     </LinearLayout>
+
+
+    <Button
+        android:id="@+id/chatTemp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
 
     <!--    <TextView
             android:id="@+id/title"

@@ -60,4 +60,9 @@ public class MenuActivity extends AppCompatActivity {
         intent.putExtra("selectedLang", selectedLang);
         startActivity(intent);
     }
+
+    @OnClick( R.id.chatTemp)
+    public void StartChatTemp(){
+        startActivity(new Intent(MenuActivity.this, chatTemp.class));
+    }
 }

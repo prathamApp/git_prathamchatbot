@@ -33,7 +33,8 @@
             android:name=".MainActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".MenuActivity" />
-        <activity android:name=".ReadingActivity"></activity>
+        <activity android:name=".ReadingActivity" />
+        <activity android:name=".chatTemp"></activity>
     </application>
 
 </manifest>
