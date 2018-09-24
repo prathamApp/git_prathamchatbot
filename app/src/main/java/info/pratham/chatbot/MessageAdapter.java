@@ -75,7 +75,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     public int getItemViewType(int position) {
         Message message = (Message) messageList.get(position);
 
-        if (message.getSenderName().equals("Chryssa")) {
+        if (message.getSenderName().equals("user")) {
             return SENDER;
         } else {
             return RECEIVER;

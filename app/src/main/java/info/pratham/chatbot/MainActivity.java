@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         ButterKnife.bind(this);
         recyclerView.setHasFixedSize(true);
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -71,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(mAdapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         //fillWithNonsenseText();
-        /*initialiseAdapter(linearLayoutManager);
         selectedLanguage = "english";
         send = BitmapFactory.decodeResource(getResources(), R.drawable.ic_send_white_24dp);
         mic = BitmapFactory.decodeResource(getResources(), R.drawable.ic_mic_white_24dp);
@@ -81,94 +82,11 @@ public class MainActivity extends AppCompatActivity {
         startSTTIntent();
         conversation = getRandomConversation(getConversations());
         try {
-            displayText.setText(conversation.getJSONObject(currentQueNo).getString("Que"));
+            messageList.add(new Message(1,conversation.getJSONObject(currentQueNo).getString("Que"), "bot"));
+            //displayText.setText(conversation.getJSONObject(currentQueNo).getString("Que"));
         } catch (JSONException e) {
             e.printStackTrace();
-        }*/
-    }
-
-    public void fillWithNonsenseText() {
-        messageList.add(new Message(1,"Hello", "Chryssa"));
-        messageList.add(new Message(2,"Hello", "JavaCodeGeeks"));
-        messageList.add(new Message(3,"This is an example about RecyclerView This is an example about RecyclerView", "Chryssa"));
-        messageList.add(new Message(4,"Great news!", "JavaCodeGeeks"));
-        messageList.add(new Message(5,"Enjoy reading!", "Chryssa"));
-        messageList.add(new Message(6,"You too", "JavaCodeGeeks"));
-        messageList.add(new Message(7,"Hello", "Chryssa"));
-        messageList.add(new Message(8,"Hello", "JavaCodeGeeks"));
-        messageList.add(new Message(9,"This is an example about RecyclerView", "Chryssa"));
-        messageList.add(new Message(10,"Great news!", "JavaCodeGeeks"));
-        messageList.add(new Message(11,"Enjoy reading!", "Chryssa"));
-        messageList.add(new Message(12,"You too", "JavaCodeGeeks"));
-        messageList.add(new Message(13,"Hello", "Chryssa"));
-        messageList.add(new Message(14,"Hello", "JavaCodeGeeks"));
-        messageList.add(new Message(15,"This is an example about RecyclerView", "Chryssa"));
-        messageList.add(new Message(16,"Great news!", "JavaCodeGeeks"));
-        messageList.add(new Message(17,"Enjoy reading!", "Chryssa"));
-        messageList.add(new Message(18,"You too", "JavaCodeGeeks"));
-
-        messageList.add(new Message(19,"Hello", "Chryssa"));
-        messageList.add(new Message(20,"Hello", "JavaCodeGeeks"));
-        messageList.add(new Message(21,"This is an example about RecyclerView", "Chryssa"));
-        messageList.add(new Message(22,"Great news!", "JavaCodeGeeks"));
-        messageList.add(new Message(23,"Enjoy reading!", "Chryssa"));
-        messageList.add(new Message(24,"You too", "JavaCodeGeeks"));
-        messageList.add(new Message(25,"Hello", "Chryssa"));
-        messageList.add(new Message(26,"Hello", "JavaCodeGeeks"));
-        messageList.add(new Message(27,"This is an example about RecyclerView", "Chryssa"));
-        messageList.add(new Message(28,"Great news!", "JavaCodeGeeks"));
-        messageList.add(new Message(29,"Enjoy reading!", "Chryssa"));
-        messageList.add(new Message(30,"You too", "JavaCodeGeeks"));
-        messageList.add(new Message(31,"Hello", "Chryssa"));
-        messageList.add(new Message(32,"Hello", "JavaCodeGeeks"));
-        messageList.add(new Message(33,"This is an example about RecyclerView", "Chryssa"));
-        messageList.add(new Message(34,"Great news!", "JavaCodeGeeks"));
-        messageList.add(new Message(35,"Enjoy reading!", "Chryssa"));
-        messageList.add(new Message(36,"You too", "JavaCodeGeeks"));
-    }
-
-    private void initialiseAdapter(final LinearLayoutManager linearLayoutManager) {
-
-        /*adapter = new Adapter<ChatMessage, chat_rec>(ChatMessage.class,R.layout.msglist,chat_rec.class,ref.child("chat")) {
-            @Override
-            protected void populateViewHolder(chat_rec viewHolder, ChatMessage model, int position) {
-
-                if (model.getMsgUser()!=null && model.getMsgUser().equals("user")) {
-
-
-                    viewHolder.rightText.setText(model.getMsgText());
-
-                    viewHolder.rightText.setVisibility(View.VISIBLE);
-                    viewHolder.leftText.setVisibility(View.GONE);
-                }
-                else {
-                    viewHolder.leftText.setText(model.getMsgText());
-
-                    viewHolder.rightText.setVisibility(View.GONE);
-                    viewHolder.leftText.setVisibility(View.VISIBLE);
-                }
-            }
-        };
-
-        adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
-            @Override
-            public void onItemRangeInserted(int positionStart, int itemCount) {
-                super.onItemRangeInserted(positionStart, itemCount);
-
-                int msgCount = adapter.getItemCount();
-                int lastVisiblePosition = linearLayoutManager.findLastCompletelyVisibleItemPosition();
-
-                if (lastVisiblePosition == -1 ||
-                        (positionStart >= (msgCount - 1) &&
-                                lastVisiblePosition == (positionStart - 1))) {
-                    recyclerView.scrollToPosition(positionStart);
-
-                }
-
-            }
-        });
-
-        recyclerView.setAdapter(adapter);*/
+        }
     }
 
     private void initialiseListeners() {
@@ -231,8 +149,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onEvent(int eventType, Bundle params) {
-            }
+            public void onEvent(int eventType, Bundle params) {}
         };
     }
 
@@ -249,20 +166,22 @@ public class MainActivity extends AppCompatActivity {
             flagSend = false;
             // send to chat
             checkAnswer(displayText.getText().toString());
+            displayText.setText("");
             setReplyResultForNextQuestion();
-//            displayText.setText("");
             ImageViewAnimatedChange(MainActivity.this, fab_img, mic);
         } else {
             speech.startListening(intent);
         }
+        mAdapter.notifyDataSetChanged();
     }
 
     private void checkAnswer(String userAnswer) {
         try {
+            messageList.add(new Message(1, userAnswer, "user"));
             String expectedAnswer = conversation.getJSONObject(currentQueNo).getString("Ans");
             int percent = getSuccessPercent(userAnswer, expectedAnswer);
             if (percent < 60) {
-                replyText = "I was expecting: " + expectedAnswer;
+                replyText = "Oops! I was expecting: " + expectedAnswer;
                 setReplyResultForCorrection();
             }
         } catch (JSONException e) {
@@ -271,7 +190,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setReplyResultForCorrection() {
-        displayText.setText(replyText);
+        messageList.add(new Message(1,replyText, "bot"));
+       // displayText.setText(replyText);
     }
 
     private void setReplyResultForNextQuestion() {
@@ -284,10 +204,13 @@ public class MainActivity extends AppCompatActivity {
                     if (currentQueNo == conversation.length()) {
                         conversation = getRandomConversation(getConversations());
                         currentQueNo = 0;
-                        displayText.setText(conversation.getJSONObject(currentQueNo).getString("Que"));
+                        messageList.add(new Message(1,conversation.getJSONObject(currentQueNo).getString("Que"), "bot"));
+                        //displayText.setText(conversation.getJSONObject(currentQueNo).getString("Que"));
                     }
                     else
-                        displayText.setText(conversation.getJSONObject(currentQueNo).getString("Que"));
+                        messageList.add(new Message(1,conversation.getJSONObject(currentQueNo).getString("Que"), "bot"));
+
+                   // displayText.setText(conversation.getJSONObject(currentQueNo).getString("Que"));
 
                 } catch (JSONException e) {
                     e.printStackTrace();

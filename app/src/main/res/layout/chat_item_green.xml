@@ -14,7 +14,6 @@
     android:gravity="right"
     android:paddingVertical="10dp"
     android:paddingHorizontal="20dp"
-    android:text="Medium Text"
     android:textAppearance="?android:attr/textAppearanceMedium"
-    android:textColor="#ffffff" />
+    android:textColor="#000000" />
     </LinearLayout>
