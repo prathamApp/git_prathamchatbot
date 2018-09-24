@@ -197,7 +197,6 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
                 }
             }
         }
-
     }
 
     @Override
