@@ -2,6 +2,7 @@ package info.pratham.chatbot;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.AudioManager;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
@@ -28,26 +29,29 @@ import java.util.concurrent.ThreadLocalRandom;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import info.pratham.chatbot.tts_classes.MyTTS;
 
-public class ReadingActivity extends AppCompatActivity implements RecognitionListener {
+public class ReadingActivity extends AppCompatActivity implements RecognitionListener{
 
     @BindView(R.id.myflowlayout2)
     FlowLayout quesFlowLayout;
     @BindView(R.id.btnHear)
     ImageButton btnHear;
-    @BindView(R.id.btnSlowHear)
-    ImageButton btnHearSlow;
     @BindView(R.id.btnNext)
     ImageButton btnNextSentence;
     @BindView(R.id.btnMic)
     ImageButton btnSpeak;
+    @BindView(R.id.tv_mic)
+    TextView tv_mic;
 
 
-    String selectedLanguage, mySentence = "",finalData="";
+    String selectedLanguage, systemLang="", mySentence = "",finalData="";
     Intent intent;
     JSONArray actualReadingData;
     String splitQues[];
-
+    boolean voiceStart = false;
+    public MyTTS ttspeech;
+    private SpeechRecognizer speech = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,21 +60,26 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
         ButterKnife.bind(this);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        selectedLanguage = "english";
+        selectedLanguage = getIntent().getStringExtra("selectedLang");
+        if(selectedLanguage.equalsIgnoreCase("english"))
+            systemLang="en-IN";
+        else
+            systemLang="hi-IN";
+
+        ttspeech = new MyTTS(this);
+
+        speech = SpeechRecognizer.createSpeechRecognizer(this);
+        speech.setRecognitionListener(this);
 
 
         startSTTIntent();
-
     }
 
 
     public void startSTTIntent() {
         intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, selectedLanguage);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, systemLang);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        intent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_POSSIBLY_COMPLETE_SILENCE_LENGTH_MILLIS, 20000);
-        intent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS, 20000);
-        intent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE, "com.domain.app");
         intent.putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true);
         intent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 5);
         getReadingData();
@@ -101,7 +110,7 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
     public JSONArray getJsonData() {
         JSONArray returnStoryNavigate = null;
         try {
-            InputStream is = getAssets().open("ReadingData.json");/*new FileInputStream("file:///android_assets/LanguageData.json");*/
+            InputStream is = getAssets().open("ReadingData.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -113,6 +122,38 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
         }
         return returnStoryNavigate;
     }
+
+    @OnClick(R.id.btnHear)
+    public void playQues() {
+        ttspeech.playTTS(mySentence, systemLang, 1);
+    }
+
+    @OnClick(R.id.btnMic)
+    public void micActive() {
+        if (!voiceStart) {
+            voiceStart = true;
+            finalData="";
+            tv_mic.setText("Stop");
+            btnSpeak.setImageResource(R.drawable.stop);
+            startSpeechInput();
+        } else {
+            stopSpeechInput();
+            tv_mic.setText("Speak");
+            btnSpeak.setImageResource(R.drawable.mic);
+            voiceStart = false;
+            stopSpeechInput();
+        }
+    }
+
+    private void stopSpeechInput() {
+        speech.stopListening();
+    }
+
+    private void startSpeechInput() {
+//        speech.setRecognitionListener(listener);
+        speech.startListening(intent);
+    }
+
 
     @OnClick(R.id.btnNext)
     public void getNextSentence() {
@@ -135,6 +176,7 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
         }
 
     }
+
 
     @Override
     public void onReadyForSpeech(Bundle params) {
@@ -163,12 +205,16 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
 
     @Override
     public void onError(int error) {
-
+        voiceStart = false;
+        tv_mic.setText("Speak");
+        btnSpeak.setImageResource(R.drawable.mic);
     }
 
     @Override
     public void onResults(Bundle results) {
-
+        voiceStart = false;
+        tv_mic.setText("Speak");
+        btnSpeak.setImageResource(R.drawable.mic);
     }
 
     @Override
