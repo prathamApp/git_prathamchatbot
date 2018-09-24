@@ -87,7 +87,7 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
 
     public void getReadingData() {
         actualReadingData = languageData();
-        Collections.shuffle(Collections.singletonList(actualReadingData));
+//        Collections.shuffle(Collections.singletonList(actualReadingData));
         getNextSentence();
     }
 
@@ -150,7 +150,6 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
     }
 
     private void startSpeechInput() {
-//        speech.setRecognitionListener(listener);
         speech.startListening(intent);
     }
 
@@ -159,6 +158,13 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
     public void getNextSentence() {
         quesFlowLayout.removeAllViewsInLayout();
         try {
+            if (voiceStart) {
+                stopSpeechInput();
+                tv_mic.setText("Speak");
+                btnSpeak.setImageResource(R.drawable.mic);
+                voiceStart = false;
+                stopSpeechInput();
+            }
             int randomNum = ThreadLocalRandom.current().nextInt(0, actualReadingData.length());
             mySentence = actualReadingData.getJSONObject(randomNum).getString("data");
         } catch (Exception e) {
