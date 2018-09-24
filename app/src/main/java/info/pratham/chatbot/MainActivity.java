@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new MessageAdapter(getBaseContext(), messageList);
         recyclerView.setAdapter(mAdapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        fillWithNonsenseText();
+        //fillWithNonsenseText();
         /*initialiseAdapter(linearLayoutManager);
         selectedLanguage = "english";
         send = BitmapFactory.decodeResource(getResources(), R.drawable.ic_send_white_24dp);
