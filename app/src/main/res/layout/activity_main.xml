@@ -1,32 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/a2"
+    android:weightSum="10"
     tools:context="info.pratham.chatbot.MainActivity">
 
     <TextView
-        android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
         android:background="@color/blackTransparent"
         android:gravity="center"
-        android:text="Chatbot"
+        android:text="Chat Section"
         android:textColor="@color/white"
         android:textSize="25sp"
         android:textStyle="bold" />
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="9.2">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="10dp"
-        android:clipToPadding="false"
-        android:layout_below="@+id/header"
         android:layout_above="@+id/rl_chat"
-        android:background="#f4f6f7"
-        />
+        android:background="@null"/>
 
     <RelativeLayout
         android:id="@+id/rl_chat"
@@ -85,6 +89,7 @@
             android:layout_marginBottom="10dp"
             android:layout_marginEnd="5dp"
             android:elevation="4dp"
+
             android:layout_centerInParent="true"
             >
             <ImageView
@@ -99,3 +104,4 @@
     </RelativeLayout>
 
 </RelativeLayout>
+</LinearLayout>
