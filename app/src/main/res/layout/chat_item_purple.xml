@@ -11,7 +11,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="left"
     android:layout_margin="5dp"
-    android:background="@drawable/round_button_pressed"
+    android:background="@drawable/left_chat"
     android:gravity="left"
     android:padding="10dp"
     android:text="Medium Text"

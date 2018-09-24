@@ -10,7 +10,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="right"
-    android:background="@drawable/round_button_normal"
+    android:background="@drawable/rigth_chat"
     android:gravity="right"
     android:padding="10dp"
     android:text="Medium Text"
