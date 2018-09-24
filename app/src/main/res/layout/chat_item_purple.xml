@@ -3,14 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="2dp"
+    android:id="@+id/itenLeft"
     android:orientation="vertical">
 <TextView
-    android:id="@+id/text"
+    android:id="@+id/textLeft"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="left"
     android:layout_margin="5dp"
-    android:background="@drawable/purple_chat_button"
+    android:background="@drawable/round_button_pressed"
     android:gravity="left"
     android:padding="10dp"
     android:text="Medium Text"
