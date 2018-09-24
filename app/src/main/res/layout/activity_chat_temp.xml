@@ -9,28 +9,22 @@
     android:background="@drawable/orangebgnew"
     tools:context=".chatTemp">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:layout_weight="8">
 
-        <com.nex3z.flowlayout.FlowLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/chatFlow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginVertical="5dp"
-            app:flChildSpacing="7dp"
-            app:flChildSpacingForLastRow="align"
-            app:flRowSpacing="5dp"></com.nex3z.flowlayout.FlowLayout>
+        <include layout="@layout/temp_chat_recycler" />
 
-    </ScrollView>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
         android:layout_weight="2">
         <Button
             android:id="@+id/btnLeft"

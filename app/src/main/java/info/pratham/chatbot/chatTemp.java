@@ -40,14 +40,14 @@ public class chatTemp extends AppCompatActivity {
     @OnClick({R.id.btnLeft})
     public void addLeftString() {
 
-        final LinearLayout myLL;
+        /*final LinearLayout myLL;
 
         i++;
         myLL = findViewById(R.id.itenLeft);
         final TextView myTextView = findViewById(R.id.textLeft);
         myTextView.setText("Left String added  "+i);
         myLL.addView(myTextView);
-        chatFlow.addView(myLL);
+        chatFlow.addView(myLL);*/
 
 /*        final LinearLayout myLL = new LinearLayout(this);
         myLL.setGravity(View.TEXT_ALIGNMENT_GRAVITY);
@@ -64,7 +64,7 @@ public class chatTemp extends AppCompatActivity {
     @OnClick({R.id.btnRight})
     public void addRigthString() {
 
-        final LinearLayout myLL;
+        /*final LinearLayout myLL;
 
         i++;
 
@@ -72,7 +72,7 @@ public class chatTemp extends AppCompatActivity {
         final TextView myTextView = findViewById(R.id.textRight);
         myTextView.setText("Right String added  "+i);
         myLL.addView(myTextView);
-        chatFlow.addView(myLL);
+        chatFlow.addView(myLL);*/
 
 /*        final LinearLayout myLL = new LinearLayout(this);
         final TextView myTextView = new TextView(this);
