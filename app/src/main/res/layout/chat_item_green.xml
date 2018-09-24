@@ -11,7 +11,6 @@
     android:layout_height="wrap_content"
     android:layout_gravity="right"
     android:background="@drawable/rigth_chat"
-    android:gravity="right"
     android:paddingVertical="10dp"
     android:paddingHorizontal="20dp"
     android:textAppearance="?android:attr/textAppearanceMedium"
