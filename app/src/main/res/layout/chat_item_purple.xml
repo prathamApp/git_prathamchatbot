@@ -14,7 +14,6 @@
     android:background="@drawable/left_chat"
     android:gravity="left"
     android:padding="10dp"
-    android:text="Medium Text"
     android:textAppearance="?android:attr/textAppearanceMedium"
-    android:textColor="#ffffff" />
+    android:textColor="#000000" />
     </LinearLayout>
