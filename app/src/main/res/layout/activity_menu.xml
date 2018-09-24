@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/orangebgnew"
+    android:background="@drawable/a3"
     android:orientation="vertical"
     android:weightSum="10"
     android:layout_gravity="center"
@@ -43,10 +43,10 @@
                 android:layout_height="wrap_content"
                 android:text="Select Language"
                 android:textAlignment="center"
+                android:textColor="@color/white"
                 android:layout_marginTop="20dp"
                 android:textAllCaps="true"
                 android:textSize="22sp"
-                android:textColor="@color/simple_black"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -65,8 +65,8 @@
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/white"
                     android:text="English"
-                    android:textColor="@color/simple_black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -76,8 +76,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
+                    android:textColor="@color/white"
                     android:text="Hindi"
-                    android:textColor="@color/simple_black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
             </RadioGroup>
@@ -111,8 +111,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:text="Chat"
+                    android:textColor="@color/white"
                     android:textAlignment="center"
-                    android:textColor="@color/simple_black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -136,8 +136,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:text="Reading"
+                    android:textColor="@color/white"
                     android:textAlignment="center"
-                    android:textColor="@color/simple_black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -156,7 +156,7 @@
         android:paddingHorizontal="20dp"
         android:text="CLICK here"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="1.2"
         />
 
     <!--    <TextView
