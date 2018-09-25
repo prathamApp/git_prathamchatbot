@@ -13,9 +13,26 @@
         android:paddingTop="10dp"
         android:paddingBottom="60dp"
         android:clipToPadding="false"
-        android:layout_above="@+id/rl_chat"
+        android:layout_above="@+id/displayCheck"
         android:background="#f4f6f7"
         />
+
+    <RelativeLayout
+        android:id="@+id/displayCheck"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rl_chat">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/green"/>
+        </ScrollView>
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/rl_chat"
@@ -25,21 +42,20 @@
 
         <RelativeLayout
             android:id="@+id/speakButton"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:background="@drawable/back_fab"
             android:layout_marginBottom="10dp"
             android:layout_marginEnd="5dp"
             android:elevation="4dp"
-            android:layout_centerInParent="true"
-            >
-            <ImageView
-                android:id="@+id/fab_img"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_centerInParent="true"
-                android:src="@drawable/ic_mic_white_24dp"
-                android:tint="#fff"/>
+            android:layout_centerInParent="true">
+            <ImageButton
+                android:id="@+id/btn_reading"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/mic"
+                android:scaleType="fitCenter"
+                android:background="@drawable/ripple_effect"/>
         </RelativeLayout>
 
     </RelativeLayout>
