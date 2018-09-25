@@ -20,7 +20,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     public static final int SENDER = 0;
     public static final int RECEIVER = 1;
 
-    public MessageAdapter(Context context, List messages) {
+    public MessageAdapter(List messages) {
         messageList = messages;
     }
 
