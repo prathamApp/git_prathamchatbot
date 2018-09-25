@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);
-        mAdapter = new MessageAdapter(getBaseContext(), messageList);
+        mAdapter = new MessageAdapter(messageList);
         recyclerView.setAdapter(mAdapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         selectedLanguage = "english";
