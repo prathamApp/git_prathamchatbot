@@ -61,24 +61,24 @@ public class ReadChatbot extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.read_chatbot);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        ButterKnife.bind(this);
-        recyclerView.setHasFixedSize(true);
-        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        linearLayoutManager.setStackFromEnd(true);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        mAdapter = new MessageAdapter(messageList);
-        recyclerView.setAdapter(mAdapter);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        selectedLanguage = "english";
-        send = BitmapFactory.decodeResource(getResources(), R.drawable.ic_send_white_24dp);
-        mic = BitmapFactory.decodeResource(getResources(), R.drawable.ic_mic_white_24dp);
-        speech = SpeechRecognizer.createSpeechRecognizer(this);
-        initialiseListeners();
-        speech.setRecognitionListener(listener);
-        startSTTIntent();
-        conversation = getRandomConversation(getConversations());
         try {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            ButterKnife.bind(this);
+            recyclerView.setHasFixedSize(true);
+            final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+            linearLayoutManager.setStackFromEnd(true);
+            recyclerView.setLayoutManager(linearLayoutManager);
+            mAdapter = new MessageAdapter(messageList);
+            recyclerView.setAdapter(mAdapter);
+            recyclerView.setItemAnimator(new DefaultItemAnimator());
+            selectedLanguage = "english";
+            send = BitmapFactory.decodeResource(getResources(), R.drawable.ic_send_white_24dp);
+            mic = BitmapFactory.decodeResource(getResources(), R.drawable.ic_mic_white_24dp);
+            speech = SpeechRecognizer.createSpeechRecognizer(this);
+            initialiseListeners();
+            speech.setRecognitionListener(listener);
+            startSTTIntent();
+            conversation = getRandomConversation(getConversations());
             messageList.add(new Message(conversation.getJSONObject(currentQueNo).getString("Que"), "bot"));
         } catch (JSONException e) {
             e.printStackTrace();
@@ -145,7 +145,8 @@ public class ReadChatbot extends AppCompatActivity {
             }
 
             @Override
-            public void onEvent(int eventType, Bundle params) {}
+            public void onEvent(int eventType, Bundle params) {
+            }
         };
     }
 
@@ -173,7 +174,7 @@ public class ReadChatbot extends AppCompatActivity {
 
     private void checkAnswer(String userAnswer) {
         try {
-            messageList.add(new Message( userAnswer, "user"));
+            messageList.add(new Message(userAnswer, "user"));
             String expectedAnswer = conversation.getJSONObject(currentQueNo).getString("Ans");
             int percent = getSuccessPercent(userAnswer, expectedAnswer);
             if (percent < 60) {
@@ -196,8 +197,7 @@ public class ReadChatbot extends AppCompatActivity {
                 conversation = getRandomConversation(getConversations());
                 currentQueNo = 0;
                 messageList.add(new Message(conversation.getJSONObject(currentQueNo).getString("Que"), "bot"));
-            }
-            else
+            } else
                 messageList.add(new Message(conversation.getJSONObject(currentQueNo).getString("Que"), "bot"));
         } catch (JSONException e) {
             e.printStackTrace();
