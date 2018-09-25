@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nex3z.flowlayout.FlowLayout;
 
@@ -60,13 +61,20 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
         ButterKnife.bind(this);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        int btnWidth = btnSpeak.getWidth();
+
+        Toast.makeText(this, ""+btnWidth, Toast.LENGTH_SHORT).show();
+
+        btnSpeak.getLayoutParams().height = 1;
+
+
         selectedLanguage = getIntent().getStringExtra("selectedLang");
         if(selectedLanguage.equalsIgnoreCase("english"))
             systemLang="en-IN";
         else
             systemLang="hi-IN";
 
-        ttspeech = new MyTTS(this);
+        ttspeech = new MyTTS(this,systemLang);
 
         speech = SpeechRecognizer.createSpeechRecognizer(this);
         speech.setRecognitionListener(this);
@@ -125,7 +133,7 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
 
     @OnClick(R.id.btnHear)
     public void playQues() {
-        ttspeech.playTTS(mySentence, systemLang, 1);
+        ttspeech.playTTS(mySentence);
     }
 
     @OnClick(R.id.btnMic)

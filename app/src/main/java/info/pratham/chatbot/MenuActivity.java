@@ -63,5 +63,6 @@ public class MenuActivity extends AppCompatActivity {
 
     @OnClick( R.id.chatTemp)
     public void StartChatTemp(){
+        startActivity(new Intent(MenuActivity.this , ReadChatbot.class));
     }
 }

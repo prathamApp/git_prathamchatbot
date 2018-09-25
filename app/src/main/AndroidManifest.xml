@@ -36,6 +36,7 @@
         <activity android:name=".MenuActivity" />
         <activity android:name=".ReadingActivity" />
         <activity android:name=".chatTemp"></activity>
+        <activity android:name=".ReadChatbot"></activity>
     </application>
 
 </manifest>

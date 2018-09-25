@@ -16,6 +16,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -33,6 +34,7 @@ import java.util.Random;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import info.pratham.chatbot.tts_classes.MyTTS;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -42,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.speakButton)
     RelativeLayout speakButton;
     @BindView(R.id.fab_img)
-    ImageView fab_img;
+    ImageButton fab_img;
     @BindView(R.id.displayText)
     TextView displayText;
 
@@ -53,10 +55,11 @@ public class MainActivity extends AppCompatActivity {
     int currentQueNo = 0;
     private SpeechRecognizer speech = null;
     public RecognitionListener listener;
-    Bitmap send, mic;
+    int send, mic;
     boolean flagSend;
     private RecyclerView.Adapter mAdapter;
     private List messageList = new ArrayList();
+    public static MyTTS ttspeech;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,15 +68,14 @@ public class MainActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         ButterKnife.bind(this);
         recyclerView.setHasFixedSize(true);
+        ttspeech = new MyTTS(this,"en-IN");
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);
         mAdapter = new MessageAdapter(messageList);
         recyclerView.setAdapter(mAdapter);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        selectedLanguage = "english";
-        send = BitmapFactory.decodeResource(getResources(), R.drawable.ic_send_white_24dp);
-        mic = BitmapFactory.decodeResource(getResources(), R.drawable.ic_mic_white_24dp);
+        send = R.drawable.send;
+        mic = R.drawable.mic;
         speech = SpeechRecognizer.createSpeechRecognizer(this);
         initialiseListeners();
         speech.setRecognitionListener(listener);
@@ -150,27 +152,40 @@ public class MainActivity extends AppCompatActivity {
         };
     }
 
-    @OnClick(R.id.clearButton)
+    @OnClick(R.id.clearImage)
     public void clearText() {
         displayText.setText("");
         flagSend = false;
         ImageViewAnimatedChange(MainActivity.this, fab_img, mic);
     }
 
-    @OnClick(R.id.speakButton)
+    @OnClick(R.id.fab_img)
     public void startRecognition() {
         if (flagSend) {
             flagSend = false;
             // send to chat
             checkAnswer(displayText.getText().toString());
             displayText.setText("");
-            setReplyResultForNextQuestion();
+            mAdapter.notifyDataSetChanged();
+            recyclerView.scrollToPosition(mAdapter.getItemCount()-1);
+
+            Handler h = new Handler();
+            h.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    setReplyResultForNextQuestion();
+                    mAdapter.notifyDataSetChanged();
+                    recyclerView.scrollToPosition(mAdapter.getItemCount()-1);
+                }
+            },1000);
             ImageViewAnimatedChange(MainActivity.this, fab_img, mic);
         } else {
             speech.startListening(intent);
         }
-        mAdapter.notifyDataSetChanged();
-        recyclerView.scrollToPosition(mAdapter.getItemCount()-1);
+    }
+
+    public static void playChat(String chatText) {
+        ttspeech.playTTS(chatText);
     }
 
     private void checkAnswer(String userAnswer) {
@@ -247,7 +262,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void ImageViewAnimatedChange(Context c, final ImageView v, final Bitmap new_image) {
+    public void ImageViewAnimatedChange(Context c, final ImageButton v, final int new_image) {
         final Animation anim_out = AnimationUtils.loadAnimation(c, R.anim.zoom_out);
         final Animation anim_in = AnimationUtils.loadAnimation(c, R.anim.zoom_in);
         anim_out.setAnimationListener(new Animation.AnimationListener() {
@@ -261,7 +276,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                v.setImageBitmap(new_image);
+                v.setImageResource(new_image);
                 anim_in.setAnimationListener(new Animation.AnimationListener() {
                     @Override
                     public void onAnimationStart(Animation animation) {

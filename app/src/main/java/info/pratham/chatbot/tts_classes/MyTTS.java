@@ -11,20 +11,21 @@ public class MyTTS {
     static Context mContext;
     HashMap<String, String> map;
 
-    public MyTTS(Context context) {
+    public MyTTS(Context context, String Lang) {
         super();
         mContext = context;
         try {
             textToSpeech = new TextToSpeech(mContext, new ttsInitListener());
+            textToSpeech.setLanguage(new Locale(Lang));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void playTTS(final String toSpeak, String Lang, float pitchTts) {
-        textToSpeech.setLanguage(new Locale(Lang));
+    public void playTTS(final String toSpeak) {
+        if (textToSpeech.isSpeaking())
+            textToSpeech.stop();
         textToSpeech.setSpeechRate(0.8f);
-        textToSpeech.setPitch(pitchTts);
         textToSpeech.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, map);
     }
 

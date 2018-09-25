@@ -99,11 +99,13 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <Button
+                <ImageButton
                     android:id="@+id/btn_chat"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:background="@drawable/btn_chat_selector"
+                    android:src="@drawable/speaking"
+                    android:scaleType="fitCenter"
+                    android:background="@drawable/ripple_effect"
                     android:paddingVertical="20dp" />
 
                 <TextView
@@ -128,7 +130,7 @@
                     android:id="@+id/btn_reading"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:src="@drawable/readingtest"
+                    android:src="@drawable/reading"
                     android:scaleType="fitCenter"
                     android:background="@drawable/ripple_effect"
                     android:paddingVertical="20dp" />
