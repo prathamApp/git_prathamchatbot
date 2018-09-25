@@ -124,11 +124,13 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <Button
+                <ImageButton
                     android:id="@+id/btn_reading"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:background="@drawable/btn_reading_selector"
+                    android:src="@drawable/readingtest"
+                    android:scaleType="fitCenter"
+                    android:background="@drawable/ripple_effect"
                     android:paddingVertical="20dp" />
 
                 <TextView
@@ -155,6 +157,7 @@
         android:layout_width="wrap_content"
         android:paddingHorizontal="20dp"
         android:text="CLICK here"
+        android:textColor="@color/white"
         android:layout_height="0dp"
         android:layout_weight="1.2"
         />
