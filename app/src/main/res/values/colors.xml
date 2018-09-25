@@ -12,6 +12,7 @@
     <color name="transparent_white">#77ffffff</color>
     <color name="transparent_white_btn">#a1ffffff</color>
     <color name="transparent_white_dark">#53ffffff</color>
+    <color name="noColor">#00ffffff</color>
     <color name="simple_black">#1e1e1e</color>
     <color name="blackTransparent">#9b0e0e0e</color>
     <color name="redTransparent">#56de0408</color>
