@@ -9,6 +9,7 @@ import android.speech.SpeechRecognizer;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,6 +50,7 @@ public class ReadChatbot extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.read_chatbot);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         ButterKnife.bind(this);
         recyclerView.setHasFixedSize(true);
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -200,7 +202,7 @@ public class ReadChatbot extends AppCompatActivity {
         for (String word : splittedAnswer) {
             final TextView myTextView = new TextView(this);
             myTextView.setText(word);
-            myTextView.setTextSize(30);
+            myTextView.setTextSize(20);
             myTextView.setTextColor(Color.YELLOW);
             readChatFlow.addView(myTextView);
         }

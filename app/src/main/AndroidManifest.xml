@@ -33,10 +33,12 @@
             android:name=".MainActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
-        <activity android:name=".MenuActivity" />
-        <activity android:name=".ReadingActivity" />
-        <activity android:name=".chatTemp"></activity>
-        <activity android:name=".ReadChatbot"></activity>
+        <activity android:name=".MenuActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ReadingActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ReadChatbot"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
