@@ -20,15 +20,16 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_below="@id/txt"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="20dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:weightSum="2">
+        android:weightSum="2"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp">
 
         <Button
             android:id="@+id/dialog_btn_eng"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:background="@drawable/ripple_effect"
@@ -39,10 +40,11 @@
 
         <Button
             android:id="@+id/dialog_btn_hin"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
-            android:layout_toRightOf="@id/dialog_btn_eng"
+            android:layout_toRightOf="@id/dialog_btn_chat"
             android:background="@drawable/ripple_effect"
             android:gravity="center"
             android:paddingVertical="10dp"
