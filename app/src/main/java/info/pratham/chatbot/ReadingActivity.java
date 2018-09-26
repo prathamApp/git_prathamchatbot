@@ -78,8 +78,6 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
 
         speech = SpeechRecognizer.createSpeechRecognizer(this);
         speech.setRecognitionListener(this);
-
-
         startSTTIntent();
     }
 
