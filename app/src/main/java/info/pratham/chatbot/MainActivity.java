@@ -68,7 +68,8 @@ public class MainActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         ButterKnife.bind(this);
         recyclerView.setHasFixedSize(true);
-        ttspeech = new MyTTS(this,"en-IN");
+        selectedLanguage = "en-IN";
+        ttspeech = new MyTTS(this,selectedLanguage);
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);

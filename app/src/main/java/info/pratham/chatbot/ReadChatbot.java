@@ -36,53 +36,11 @@ import butterknife.OnClick;
 
 public class ReadChatbot extends AppCompatActivity {
 
-    @BindView(R.id.recyclerView)
-    RecyclerView recyclerView;
-    @BindView(R.id.speakButton)
-    RelativeLayout speakButton;
-    @BindView(R.id.fab_img)
-    ImageView fab_img;
-    @BindView(R.id.displayText)
-    TextView displayText;
-
-    JSONArray conversation;
-    Intent intent;
-    String selectedLanguage;
-    String replyText;
-    int currentQueNo = 0;
-    private SpeechRecognizer speech = null;
-    public RecognitionListener listener;
-    Bitmap send, mic;
-    boolean flagSend;
-    private RecyclerView.Adapter mAdapter;
-    private List messageList = new ArrayList();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.read_chatbot);
-        try {
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-            ButterKnife.bind(this);
-            recyclerView.setHasFixedSize(true);
-            final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-            linearLayoutManager.setStackFromEnd(true);
-            recyclerView.setLayoutManager(linearLayoutManager);
-            mAdapter = new MessageAdapter(messageList);
-            recyclerView.setAdapter(mAdapter);
-            recyclerView.setItemAnimator(new DefaultItemAnimator());
-            selectedLanguage = "english";
-            send = BitmapFactory.decodeResource(getResources(), R.drawable.ic_send_white_24dp);
-            mic = BitmapFactory.decodeResource(getResources(), R.drawable.ic_mic_white_24dp);
-            speech = SpeechRecognizer.createSpeechRecognizer(this);
-            initialiseListeners();
-            speech.setRecognitionListener(listener);
-            startSTTIntent();
-            conversation = getRandomConversation(getConversations());
-            messageList.add(new Message(conversation.getJSONObject(currentQueNo).getString("Que"), "bot"));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+
     }
 
     private void initialiseListeners() {
