@@ -10,6 +10,7 @@ import android.speech.SpeechRecognizer;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -81,8 +82,8 @@ public class MainActivity extends AppCompatActivity {
             conversation = getRandomConversation(getConversations());
             if (conversation != null && conversation.length() > 0) {
                 messageList.add(new Message(conversation.getJSONObject(currentQueNo).getString("Que"), "bot"));
-            }
-            else Toast.makeText(this, "Problem in getting conversation!!", Toast.LENGTH_SHORT).show();
+            } else
+                Toast.makeText(this, "Problem in getting conversation!!", Toast.LENGTH_SHORT).show();
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -208,15 +209,18 @@ public class MainActivity extends AppCompatActivity {
         int correctCount = 0;
         String userAnsArray[] = userAnswer.split(" ");
         String expectedAnsArray[] = expectedAnswer.split(" ");
-        for (int userIndex = 0; userIndex < userAnsArray.length; userIndex++)
-            for (int expectedIndex = 0; expectedIndex < expectedAnsArray.length; expectedIndex++) {
+        for (int expectedIndex = 0; expectedIndex < expectedAnsArray.length; expectedIndex++)
+            for (int userIndex = 0; userIndex < userAnsArray.length; userIndex++) {
                 if (userAnsArray[userIndex].equalsIgnoreCase(expectedAnsArray[expectedIndex])) {
+                    Log.d("CheckPer", "getSuccessPercent: "+userAnsArray[userIndex]+ "           "+expectedAnsArray[expectedIndex]);
                     correctCount += 1;
                     break;
                 }
             }
         if (correctCount == 0) return 0;
-        return ((expectedAnsArray.length / correctCount) * 100);
+        Toast.makeText(this, "" + ( correctCount/expectedAnsArray.length ) * 100, Toast.LENGTH_SHORT).show();
+        Log.d("CheckPer", "getSuccessPercent: "+( correctCount/expectedAnsArray.length ) * 100);
+        return (( correctCount / expectedAnsArray.length) * 100);
     }
 
     public JSONArray getConversations() {
