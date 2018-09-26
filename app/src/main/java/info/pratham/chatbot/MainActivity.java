@@ -2,22 +2,18 @@ package info.pratham.chatbot;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,12 +45,12 @@ public class MainActivity extends AppCompatActivity {
     TextView displayText;
 
     JSONArray conversation;
-    Intent intent;
-    String selectedLanguage;
-    String replyText;
     int currentQueNo = 0;
     private SpeechRecognizer speech = null;
     public RecognitionListener listener;
+    Intent intent;
+    String selectedLanguage;
+    String replyText;
     int send, mic;
     boolean flagSend;
     private RecyclerView.Adapter mAdapter;
@@ -69,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         recyclerView.setHasFixedSize(true);
         selectedLanguage = "en-IN";
-        ttspeech = new MyTTS(this,selectedLanguage);
+        ttspeech = new MyTTS(this, selectedLanguage);
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -81,9 +77,12 @@ public class MainActivity extends AppCompatActivity {
         initialiseListeners();
         speech.setRecognitionListener(listener);
         startSTTIntent();
-        conversation = getRandomConversation(getConversations());
         try {
-            messageList.add(new Message(conversation.getJSONObject(currentQueNo).getString("Que"), "bot"));
+            conversation = getRandomConversation(getConversations());
+            if (conversation != null && conversation.length() > 0) {
+                messageList.add(new Message(conversation.getJSONObject(currentQueNo).getString("Que"), "bot"));
+            }
+            else Toast.makeText(this, "Problem in getting conversation!!", Toast.LENGTH_SHORT).show();
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -149,7 +148,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onEvent(int eventType, Bundle params) {}
+            public void onEvent(int eventType, Bundle params) {
+            }
         };
     }
 
@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
             checkAnswer(displayText.getText().toString());
             displayText.setText("");
             mAdapter.notifyDataSetChanged();
-            recyclerView.scrollToPosition(mAdapter.getItemCount()-1);
+            recyclerView.scrollToPosition(mAdapter.getItemCount() - 1);
 
             Handler h = new Handler();
             h.postDelayed(new Runnable() {
@@ -176,9 +176,9 @@ public class MainActivity extends AppCompatActivity {
                 public void run() {
                     setReplyResultForNextQuestion();
                     mAdapter.notifyDataSetChanged();
-                    recyclerView.scrollToPosition(mAdapter.getItemCount()-1);
+                    recyclerView.scrollToPosition(mAdapter.getItemCount() - 1);
                 }
-            },1000);
+            }, 1000);
             ImageViewAnimatedChange(MainActivity.this, fab_img, mic);
         } else {
             speech.startListening(intent);
@@ -191,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void checkAnswer(String userAnswer) {
         try {
-            messageList.add(new Message( userAnswer, "user"));
+            messageList.add(new Message(userAnswer, "user"));
             String expectedAnswer = conversation.getJSONObject(currentQueNo).getString("Ans");
             int percent = getSuccessPercent(userAnswer, expectedAnswer);
             if (percent < 60) {
@@ -214,8 +214,7 @@ public class MainActivity extends AppCompatActivity {
                 conversation = getRandomConversation(getConversations());
                 currentQueNo = 0;
                 messageList.add(new Message(conversation.getJSONObject(currentQueNo).getString("Que"), "bot"));
-            }
-            else
+            } else
                 messageList.add(new Message(conversation.getJSONObject(currentQueNo).getString("Que"), "bot"));
         } catch (JSONException e) {
             e.printStackTrace();

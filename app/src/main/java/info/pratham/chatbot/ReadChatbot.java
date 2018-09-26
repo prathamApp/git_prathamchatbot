@@ -1,24 +1,18 @@
 package info.pratham.chatbot;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.nex3z.flowlayout.FlowLayout;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,11 +30,73 @@ import butterknife.OnClick;
 
 public class ReadChatbot extends AppCompatActivity {
 
+    @BindView(R.id.recyclerView)
+    RecyclerView recyclerView;
+    @BindView(R.id.readChatFlow)
+    FlowLayout readChatFlow;
+
+    JSONArray conversation;
+    private RecyclerView.Adapter mAdapter;
+    private List messageList = new ArrayList();
+    String question, answer;
+    int currentQueNo = 0;
+    private SpeechRecognizer speech = null;
+    public RecognitionListener listener;
+    Intent intent;
+    String selectedLanguage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.read_chatbot);
+        ButterKnife.bind(this);
+        recyclerView.setHasFixedSize(true);
+        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setStackFromEnd(true);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        mAdapter = new MessageAdapter(messageList);
+        recyclerView.setAdapter(mAdapter);
+        speech = SpeechRecognizer.createSpeechRecognizer(this);
+        initialiseListeners();
+        speech.setRecognitionListener(listener);
+        startSTTIntent();
 
+        try {
+            conversation = getRandomConversation(getConversations());
+            if (conversation != null && conversation.length() > 0) {
+                question = conversation.getJSONObject(currentQueNo).getString("Que");
+                answer = conversation.getJSONObject(currentQueNo).getString("Ans");
+                addItemInConvo(question, false);
+                setAnswerText(answer);
+            } else
+                Toast.makeText(this, "Problem in getting conversation!!", Toast.LENGTH_SHORT).show();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @OnClick(R.id.btn_reading)
+    public void startRecognition() {
+        speech.stopListening();
+        speech.startListening(intent);
+    }
+
+    @OnClick(R.id.btn_imgsend)
+    public void sendMessage() {
+        addItemInConvo(answer,true);
+        displayNextQuestion();
+    }
+
+    private void displayNextQuestion() {
+        try {
+            currentQueNo += 1;
+            question = conversation.getJSONObject(currentQueNo).getString("Que");
+            answer = conversation.getJSONObject(currentQueNo).getString("Ans");
+            addItemInConvo(question, false);
+            setAnswerText(answer);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void initialiseListeners() {
@@ -67,114 +123,40 @@ public class ReadChatbot extends AppCompatActivity {
 
             @Override
             public void onError(int error) {
-                Toast.makeText(ReadChatbot.this, "Can't hear you", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onResults(Bundle results) {
-                flagSend = true;
-                displayText.setText(results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION).get(0));
-                ImageViewAnimatedChange(ReadChatbot.this, fab_img, send);
             }
 
             @Override
             public void onPartialResults(Bundle partialResults) {
-                /*System.out.println("LogTag" + " onResults");
+                System.out.println("LogTag" + " onResults");
                 ArrayList<String> matches = partialResults
                         .getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
 
                 String sttResult = matches.get(0);
-                String sttQuestion = mySentence;
+                String sttQuestion = answer;
 
                 String splitQues[] = sttQuestion.split(" ");
                 String splitRes[] = sttResult.split(" ");
-                String splitPrevRes[] = finalData.split(" ");
 
 
                 for (int i = 0; i < splitQues.length; i++) {
-                    final TextView myView = (TextView) quesFlowLayout.getChildAt(i);
-                    String resString = ""+myView.getText();
+                    final TextView myView = (TextView) readChatFlow.getChildAt(i);
+                    String resString = "" + myView.getText();
                     for (int j = 0; j < splitRes.length; j++) {
-                        if(splitRes[j].equalsIgnoreCase(resString)) {
+                        if (splitRes[j].equalsIgnoreCase(resString)) {
                             myView.setTextColor(Color.GREEN);
                         }
                     }
-                }*/
+                }
             }
 
             @Override
             public void onEvent(int eventType, Bundle params) {
             }
         };
-    }
-
-    @OnClick(R.id.clearButton)
-    public void clearText() {
-        displayText.setText("");
-        flagSend = false;
-        ImageViewAnimatedChange(ReadChatbot.this, fab_img, mic);
-    }
-
-    @OnClick(R.id.speakButton)
-    public void startRecognition() {
-        if (flagSend) {
-            flagSend = false;
-            // send to chat
-            checkAnswer(displayText.getText().toString());
-            displayText.setText("");
-            setReplyResultForNextQuestion();
-            ImageViewAnimatedChange(ReadChatbot.this, fab_img, mic);
-        } else {
-            speech.startListening(intent);
-        }
-        mAdapter.notifyDataSetChanged();
-    }
-
-    private void checkAnswer(String userAnswer) {
-        try {
-            messageList.add(new Message(userAnswer, "user"));
-            String expectedAnswer = conversation.getJSONObject(currentQueNo).getString("Ans");
-            int percent = getSuccessPercent(userAnswer, expectedAnswer);
-            if (percent < 60) {
-                replyText = "Oops! I was expecting: " + expectedAnswer;
-                setReplyResultForCorrection();
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void setReplyResultForCorrection() {
-        messageList.add(new Message(replyText, "bot"));
-    }
-
-    private void setReplyResultForNextQuestion() {
-        try {
-            currentQueNo += 1;
-            if (currentQueNo == conversation.length()) {
-                conversation = getRandomConversation(getConversations());
-                currentQueNo = 0;
-                messageList.add(new Message(conversation.getJSONObject(currentQueNo).getString("Que"), "bot"));
-            } else
-                messageList.add(new Message(conversation.getJSONObject(currentQueNo).getString("Que"), "bot"));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private int getSuccessPercent(String userAnswer, String expectedAnswer) {
-        int correctCount = 0;
-        String userAnsArray[] = userAnswer.split(" ");
-        String expectedAnsArray[] = expectedAnswer.split(" ");
-        for (int userIndex = 0; userIndex < userAnsArray.length; userIndex++)
-            for (int expectedIndex = 0; expectedIndex < expectedAnsArray.length; expectedIndex++) {
-                if (userAnsArray[userIndex].equalsIgnoreCase(expectedAnsArray[expectedIndex])) {
-                    correctCount += 1;
-                    break;
-                }
-            }
-        if (correctCount == 0) return 0;
-        return ((expectedAnsArray.length / correctCount) * 100);
     }
 
     public JSONArray getConversations() {
@@ -203,38 +185,25 @@ public class ReadChatbot extends AppCompatActivity {
         }
     }
 
-    public void ImageViewAnimatedChange(Context c, final ImageView v, final Bitmap new_image) {
-        final Animation anim_out = AnimationUtils.loadAnimation(c, R.anim.zoom_out);
-        final Animation anim_in = AnimationUtils.loadAnimation(c, R.anim.zoom_in);
-        anim_out.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-            }
+    private void addItemInConvo(String text, boolean user) {
+        if (user)
+            messageList.add(new Message(text, "user"));
+        else
+            messageList.add(new Message(text, "bot"));
+        mAdapter.notifyDataSetChanged();
+        recyclerView.scrollToPosition(mAdapter.getItemCount() - 1);
+    }
 
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                v.setImageBitmap(new_image);
-                anim_in.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                    }
-                });
-                v.startAnimation(anim_in);
-            }
-        });
-        v.startAnimation(anim_out);
+    private void setAnswerText(String answerText) {
+        readChatFlow.removeAllViews();
+        String[] splittedAnswer = answerText.split(" ");
+        for (String word : splittedAnswer) {
+            final TextView myTextView = new TextView(this);
+            myTextView.setText(word);
+            myTextView.setTextSize(30);
+            myTextView.setTextColor(Color.YELLOW);
+            readChatFlow.addView(myTextView);
+        }
     }
 
     public void startSTTIntent() {
@@ -247,4 +216,6 @@ public class ReadChatbot extends AppCompatActivity {
         intent.putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true);
         intent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 5);
     }
+
+
 }

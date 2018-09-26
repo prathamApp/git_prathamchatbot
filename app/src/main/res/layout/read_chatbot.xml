@@ -41,6 +41,8 @@
             android:layout_height="0dp"
             android:layout_marginHorizontal="10dp"
             android:layout_weight="2.3"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
             android:background="@drawable/green">
 
             <com.nex3z.flowlayout.FlowLayout xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -66,8 +68,6 @@
                 android:id="@+id/speakButton"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_centerInParent="true"
-                android:layout_marginBottom="10dp"
                 android:layout_marginEnd="5dp"
                 android:elevation="4dp">
 
@@ -78,6 +78,23 @@
                     android:background="@drawable/ripple_effect"
                     android:scaleType="fitCenter"
                     android:src="@drawable/mic" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/sendButton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="5dp"
+                android:elevation="4dp">
+
+                <ImageButton
+                    android:id="@+id/btn_imgsend"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/ripple_effect"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/send" />
             </RelativeLayout>
 
         </RelativeLayout>
