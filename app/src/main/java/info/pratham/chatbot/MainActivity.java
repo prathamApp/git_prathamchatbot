@@ -118,33 +118,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResults(Bundle results) {
                 flagSend = true;
-                displayText.setText(results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION).get(0));
                 ImageViewAnimatedChange(MainActivity.this, fab_img, send);
             }
 
             @Override
             public void onPartialResults(Bundle partialResults) {
-                /*System.out.println("LogTag" + " onResults");
+
                 ArrayList<String> matches = partialResults
                         .getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
 
-                String sttResult = matches.get(0);
-                String sttQuestion = mySentence;
-
-                String splitQues[] = sttQuestion.split(" ");
-                String splitRes[] = sttResult.split(" ");
-                String splitPrevRes[] = finalData.split(" ");
-
-
-                for (int i = 0; i < splitQues.length; i++) {
-                    final TextView myView = (TextView) quesFlowLayout.getChildAt(i);
-                    String resString = ""+myView.getText();
-                    for (int j = 0; j < splitRes.length; j++) {
-                        if(splitRes[j].equalsIgnoreCase(resString)) {
-                            myView.setTextColor(Color.GREEN);
-                        }
-                    }
-                }*/
+                displayText.setText(matches.get(0));
             }
 
             @Override
