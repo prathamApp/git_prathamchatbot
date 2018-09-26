@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.WindowManager;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +36,8 @@ public class ReadChatbot extends AppCompatActivity {
     RecyclerView recyclerView;
     @BindView(R.id.readChatFlow)
     FlowLayout readChatFlow;
+    @BindView(R.id.btn_reading)
+    ImageButton btn_reading;
 
     JSONArray conversation;
     private RecyclerView.Adapter mAdapter;
@@ -125,10 +128,12 @@ public class ReadChatbot extends AppCompatActivity {
 
             @Override
             public void onError(int error) {
+                btn_reading.setImageResource(R.drawable.mic);
             }
 
             @Override
             public void onResults(Bundle results) {
+                btn_reading.setImageResource(R.drawable.mic);
             }
 
             @Override
