@@ -2,193 +2,410 @@
   "conversations": [
     [
       {
-        "Que": "Hey, what is your name?",
-        "Ans": "my name is"
+        "Que": "What’s your name?",
+        "Ans": "My name is Rohan"
       },
       {
-        "Que": "What is your favourite colour?",
-        "Ans": "my favourite colour is"
+        "Que": "Where are you from?",
+        "Ans": "I am from Pune"
+      },
+      {
+        "Que": "Where do you live?",
+        "Ans": "I live in Pune"
       },
       {
         "Que": "How old are you?",
-        "Ans": "i am years old"
+        "Ans": "I am 10 years old"
+      },
+      {
+        "Que": "When is your birthday?",
+        "Ans": "My birthday is on December 10th"
       },
       {
         "Que": "You are in which standard?",
-        "Ans": "i am in standard"
+        "Ans": "I am in fifth standard"
       },
       {
-        "Que": "What is your favourite hobby",
-        "Ans": "my favourite hobby is"
+        "Que": "What’s your favourite game?",
+        "Ans": "My favourite game is chess"
       },
       {
-        "Que": "What is your school name?",
-        "Ans": "my school name is"
+        "Que": "What do you do?/ What’s your job?",
+        "Ans": "I am a student"
       },
       {
         "Que": "Which subject do you like the most?",
-        "Ans": "i like subject the most"
+        "Ans": "I like maths subject the most"
       },
       {
-        "Que": "What is your favourite teacher name?",
-        "Ans": "my favourite teachers name is"
+        "Que": "What is your school name?",
+        "Ans": "My school name is saint peter"
       },
       {
-        "Que": "What is the addition of 5 and 3",
-        "Ans": "The addition of 5 and 3 is 8"
+        "Que": "What religion are you?",
+        "Ans": "I am a Hindu"
+      },
+      {
+        "Que": "What is your contry name?",
+        "Ans": "My country's name India"
+      },
+      {
+        "Que": "Who do you live with?",
+        "Ans": "I live with my parents"
+      },
+      {
+        "Que": "What time do you get up?",
+        "Ans": "I get up at 6 in the morning"
+      },
+      {
+        "Que": "When do you do morning exercises?",
+        "Ans": "I do morning exercises at 7"
+      },
+      {
+        "Que": "What time do you have breakfast?",
+        "Ans": "I have breakfast at 8"
+      },
+      {
+        "Que": "What time do you go to bed?",
+        "Ans": "I go to bed at 11 in the night"
+      },
+      {
+        "Que": "What’s your favorite color?",
+        "Ans": "My favorite color is red"
+      },
+      {
+        "Que": "What’s your hobby?",
+        "Ans": "My hobby is singing"
+      },
+      {
+        "Que": "What’s your favorite drink?",
+        "Ans": "My favorite drink is Lemon Tea"
+      },
+      {
+        "Que": "What’s your favorite food?",
+        "Ans": "My favorite food is Biryani"
+      },
+      {
+        "Que": "Where do you study?",
+        "Ans": "I am a student at Pune University"
+      },
+      {
+        "Que": "What time do you go to school?",
+        "Ans": "I go to school at 10 in the morning"
+      },
+      {
+        "Que": "How do you get to school?",
+        "Ans": "I go to school by Bus"
+      },
+      {
+        "Que": "Why are you studying English?",
+        "Ans": "Because it is a window to the world"
+      },
+      {
+        "Que": "What do you want to do after you graduate?",
+        "Ans": "I would like to be a software engineer"
+      },
+      {
+        "Que": "How did you learn English?",
+        "Ans": "I picked it up from movies and songs"
+      },
+      {
+        "Que": "How many languages do you speak?",
+        "Ans": "I speak two languages"
+      },
+      {
+        "Que": "Can you speak English?",
+        "Ans": "I can express myself and communicate in English"
+      },
+      {
+        "Que": "How long have you learning English?",
+        "Ans": "I have been learning English for 10 years"
+      },
+      {
+        "Que": "Which year are you in?",
+        "Ans": "I am in my third year"
+      },
+      {
+        "Que": "Do you have any exams coming up?",
+        "Ans": " I have just graduated"
+      },
+      {
+        "Que": "What’s the weather like?",
+        "Ans": "It is hot and windy"
+      },
+      {
+        "Que": "What time is it?",
+        "Ans": "It is half past three"
+      },
+      {
+        "Que": "What’s the date today?",
+        "Ans": "27th of September"
+      },
+      {
+        "Que": "How are you?",
+        "Ans": "I am fine thank you How about you"
+      },
+      {
+        "Que": "Where are you going?",
+        "Ans": "I am going to the store I need to buy something"
+      },
+      {
+        "Que": "What are you going to do today?",
+        "Ans": "I am going shopping"
+      },
+      {
+        "Que": "What are you doing?",
+        "Ans": "I am reading a book"
+      },
+      {
+        "Que": "Where would you like to go?",
+        "Ans": "I would like to go to the zoo"
       }
     ],
     [
+      {
+        "Que": "What’s the matter?",
+        "Ans": "I do not feel so good"
+      },
+      {
+        "Que": "Is there anything I can do to help?",
+        "Ans": "Everything will be OK"
+      },
+      {
+        "Que": "What’s on your mind?",
+        "Ans": "I am just thinking"
+      },
+      {
+        "Que": "What did you do last night?",
+        "Ans": "I watched TV"
+      },
+      {
+        "Que": "What are you going to do tomorrow?",
+        "Ans": "I am going to go play volleyball at the beach"
+      },
+      {
+        "Que": "What sports can you play?",
+        "Ans": "I can play tennis basketball football"
+      },
+      {
+        "Que": "Can you give me a hand?",
+        "Ans": "No problem"
+      },
+      {
+        "Que": "Could you do me a favor?",
+        "Ans": "I would be happy to help you"
+      },
+      {
+        "Que": "How can I help you?/ May I help you?",
+        "Ans": "Yes I am looking for a sweater"
+      },
+      {
+        "Que": "Could you please give me that book?",
+        "Ans": "Sure why not"
+      },
+      {
+        "Que": "Would you mind opening the window?",
+        "Ans": "It would be my pleasure"
+      },
+      {
+        "Que": "Can I try it on?",
+        "Ans": "Sure the changing rooms are over there"
+      },
+      {
+        "Que": "What size do you wear?",
+        "Ans": "I take a size 11"
+      },
+      {
+        "Que": "Is that a good fit?",
+        "Ans": "It is just right"
+      },
+      {
+        "Que": "How much is it?/ How much does it cost?",
+        "Ans": "It is 11 dollars"
+      },
+      {
+        "Que": "How would you like to pay?",
+        "Ans": "I would like to pay by cash"
+      },
+      {
+        "Que": "Do you need anything else?",
+        "Ans": "No thanks"
+      },
+      {
+        "Que": "How are you feeling?",
+        "Ans": "Great never better"
+      },
+      {
+        "Que": "How was the party?",
+        "Ans": "It was a good time"
+      },
+      {
+        "Que": "Are you ready to order?",
+        "Ans": "We need a few more minutes"
+      },
+      {
+        "Que": "Would you like chicken or pasta?",
+        "Ans": "I would like a pasta"
+      },
+      {
+        "Que": "What would you like to drink?",
+        "Ans": "Iced Tea"
+      },
+      {
+        "Que": "Did you save room for dessert?",
+        "Ans": "Yes please. Can I see a list"
+      },
+      {
+        "Que": "How does it taste?",
+        "Ans": "It’s delicious"
+      },
+      {
+        "Que": "Can I get you anything else?",
+        "Ans": "No thank you"
+      },
+      {
+        "Que": "What do you think about this event?",
+        "Ans": "I really like it what do you think"
+      },
+      {
+        "Que": "Are you here with anybody?",
+        "Ans": "I came with my best friend"
+      },
+      {
+        "Que": "Have you got a pet?",
+        "Ans": "Yes I have got a puppy"
+      },
+      {
+        "Que": "How do you do?",
+        "Ans": "I am doing great pleased to meet you"
+      },
+      {
+        "Que": "What’s this?",
+        "Ans": "This is a pencil"
+      }
+    ],
+    [
+      {
+        "Que": "What do you think about this event?",
+        "Ans": "I really like it"
+      },
+      {
+        "Que": "Are you here with anybody?",
+        "Ans": "I came with my best friend"
+      },
+      {
+        "Que": "Have you got a pet?",
+        "Ans": "No"
+      },
+      {
+        "Que": "What’s this?",
+        "Ans": "This is a pencil"
+      },
+      {
+        "Que": "How is she?",
+        "Ans": "She is pretty"
+      },
       {
         "Que": "Hey, what is your name?",
         "Ans": "My name is"
       },
       {
-        "Que": "What is your favourite colour?",
-        "Ans": "My favourite colour is"
+        "Que": "What is he like?",
+        "Ans": "He is very smart and brave"
       },
       {
-        "Que": "How old are you?",
-        "Ans": "I am years old"
+        "Que": "Are you hungry?",
+        "Ans": "No I’m full"
       },
       {
-        "Que": "You are in which standard?",
-        "Ans": "I am in standard"
+        "Que": "How do you feel about him?",
+        "Ans": "He is quite friendly and helpful"
       },
       {
-        "Que": "What is your favourite hobby",
-        "Ans": "My favourite hobby is"
+        "Que": "May I open the window?",
+        "Ans": "Certainly It’s very hot in the office today"
       },
       {
-        "Que": "What is your school name?",
-        "Ans": "My school name is"
+        "Que": "Do you need help?",
+        "Ans": "I am good thanks for asking"
       },
       {
-        "Que": "Which subject do you like the most?",
-        "Ans": "I like subject the most"
+        "Que": "What do you do every day?",
+        "Ans": "I listen to music and play badminton everyday"
       },
       {
-        "Que": "What is your favourite teacher name?",
-        "Ans": "My favourite teacher's name is"
+        "Que": "What are you planning to do today?",
+        "Ans": "I am not sure yet"
       },
       {
-        "Que": "What is the addition of 5 and 3",
-        "Ans": "The addition of 5 and 3 is 8"
+        "Que": "What are you planning for after work?",
+        "Ans": "I am going shopping with my friends"
+      },
+      {
+        "Que": "Are you free tomorrow?",
+        "Ans": "No problem we can meet tomorrow"
+      },
+      {
+        "Que": "Will you join me for coffee?",
+        "Ans": "Sorry I am afraid I do not have time"
+      },
+      {
+        "Que": "Could we have lunch together one day?",
+        "Ans": "With pleasure"
+      },
+      {
+        "Que": "Would you like to have dinner with me?",
+        "Ans": "Yes That would be nice"
+      },
+      {
+        "Que": "Where do you want to go?",
+        "Ans": "I would like to go to a Japanese restaurant"
+      },
+      {
+        "Que": "Would you like to come to the cinema with me tonight?",
+        "Ans": "Sorry I cannot I have got other plans"
+      },
+      {
+        "Que": "Would you like to play a round of golf this weekend?",
+        "Ans": "That would be great"
+      },
+      {
+        "Que": "How about coming to the barbecue at the tennis club?",
+        "Ans": "Nice of you to ask me but I have got an appointment"
+      },
+      {
+        "Que": "Have you been waiting long?",
+        "Ans": "Only a few minutes"
+      },
+      {
+        "Que": "How do you get to work?",
+        "Ans": "I usually drive my car"
+      },
+      {
+        "Que": "Could you tell me how to get to the police station?",
+        "Ans": "Take the second road on the right"
+      },
+      {
+        "Que": "Excuse me! Is there a bank near here?",
+        "Ans": "I am sorry I do not know"
+      },
+      {
+        "Que": "What’s the best way to the museum?",
+        "Ans": "You could ask the bus driver"
+      },
+      {
+        "Que": "Did you get my message?",
+        "Ans": "Oh yeah I think I got something from you"
+      },
+      {
+        "Que": "Are you sick?",
+        "Ans": "Yes I am sick"
+      },
+      {
+        "Que": "Are you on any sort of medication?",
+        "Ans": "I need a sick note"
       }
-    ],
-    [
-      {
-        "Que": "Hey, what is your name?",
-        "Ans": "My name is"
-      },
-      {
-        "Que": "What is your favourite colour?",
-        "Ans": "My favourite colour is"
-      },
-      {
-        "Que": "How old are you?",
-        "Ans": "I am years old"
-      },
-      {
-        "Que": "You are in which standard?",
-        "Ans": "I am in standard"
-      },
-      {
-        "Que": "What is your favourite hobby",
-        "Ans": "My favourite hobby is"
-      },
-      {
-        "Que": "What is your school name?",
-        "Ans": "My school name is"
-      },
-      {
-        "Que": "Which subject do you like the most?",
-        "Ans": "I like subject the most"
-      },
-      {
-        "Que": "What is your favourite teacher name?",
-        "Ans": "My favourite teacher's name is"
-      },
-      {
-        "Que": "What is the addition of 5 and 3",
-        "Ans": "The addition of 5 and 3 is 8"
-      }
-    ],
-    [
-      {
-        "Que": "Hey, what is your name?",
-        "Ans": "My name is"
-      },
-      {
-        "Que": "What is your favourite colour?",
-        "Ans": "My favourite colour is"
-      },
-      {
-        "Que": "How old are you?",
-        "Ans": "I am years old"
-      },
-      {
-        "Que": "You are in which standard?",
-        "Ans": "I am in standard"
-      },
-      {
-        "Que": "What is your favourite hobby",
-        "Ans": "My favourite hobby is"
-      },
-      {
-        "Que": "What is your school name?",
-        "Ans": "My school name is"
-      },
-      {
-        "Que": "Which subject do you like the most?",
-        "Ans": "I like subject the most"
-      },
-      {
-        "Que": "What is your favourite teacher name?",
-        "Ans": "My favourite teacher's name is"
-      },
-      {
-        "Que": "What is the addition of 5 and 3",
-        "Ans": "The addition of 5 and 3 is 8"
-      }
-    ],
-    [
-      {
-        "Que": "Hey, what is your name?",
-        "Ans": "My name is"
-      },
-      {
-        "Que": "What is your favourite colour?",
-        "Ans": "My favourite colour is"
-      },
-      {
-        "Que": "How old are you?",
-        "Ans": "I am years old"
-      },
-      {
-        "Que": "You are in which standard?",
-        "Ans": "I am in standard"
-      },
-      {
-        "Que": "What is your favourite hobby",
-        "Ans": "My favourite hobby is"
-      },
-      {
-        "Que": "What is your school name?",
-        "Ans": "My school name is"
-      },
-      {
-        "Que": "Which subject do you like the most?",
-        "Ans": "I like subject the most"
-      },
-      {
-        "Que": "What is your favourite teacher name?",
-        "Ans": "My favourite teacher's name is"
-      },
-      {
-        "Que": "What is the addition of 5 and 3",
-        "Ans": "The addition of 5 and 3 is 8"
-      }
+
     ]
   ]
 }

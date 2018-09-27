@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
             messageList.add(new Message(userAnswer, "user"));
             String expectedAnswer = conversation.getJSONObject(currentQueNo).getString("Ans");
             float percent = getSuccessPercent(userAnswer, expectedAnswer);
-            if (percent < 60) {
+            if (percent < 40) {
                 replyText = "Oops! I was expecting: " + expectedAnswer;
                 setReplyResultForCorrection();
             }
@@ -212,14 +212,11 @@ public class MainActivity extends AppCompatActivity {
         for (int expectedIndex = 0; expectedIndex < expectedAnsArray.length; expectedIndex++)
             for (int userIndex = 0; userIndex < userAnsArray.length; userIndex++) {
                 if (userAnsArray[userIndex].equalsIgnoreCase(expectedAnsArray[expectedIndex])) {
-                    Log.d("CheckPer", "getSuccessPercent: "+userAnsArray[userIndex]+ "           "+expectedAnsArray[expectedIndex]);
                     correctCount += 1;
                     break;
                 }
             }
         if (correctCount == 0) return 0;
-        Toast.makeText(this, "" + ( correctCount/expectedAnsArray.length ) * 100, Toast.LENGTH_SHORT).show();
-        Log.d("CheckPer", "getSuccessPercent: "+( correctCount/expectedAnsArray.length ) * 100);
         return (( correctCount / expectedAnsArray.length) * 100);
     }
 
