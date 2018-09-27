@@ -44,6 +44,7 @@ public class ReadChatbot extends AppCompatActivity {
     private List messageList = new ArrayList();
     String question, answer;
     int currentQueNo = 0;
+    boolean voiceStart = false;
     private SpeechRecognizer speech = null;
     public RecognitionListener listener;
     Intent intent;
@@ -82,13 +83,25 @@ public class ReadChatbot extends AppCompatActivity {
 
     @OnClick(R.id.btn_reading)
     public void startRecognition() {
-        speech.stopListening();
-        speech.startListening(intent);
+        if (!voiceStart) {
+            voiceStart = true;
+            btn_reading.setImageResource(R.drawable.stop);
+            speech.startListening(intent);
+        } else {
+            btn_reading.setImageResource(R.drawable.mic);
+            voiceStart = false;
+            speech.stopListening();
+        }
     }
 
     @OnClick(R.id.btn_imgsend)
     public void sendMessage() {
-        addItemInConvo(answer,true);
+        if (voiceStart) {
+            btn_reading.setImageResource(R.drawable.mic);
+            voiceStart = false;
+            speech.stopListening();
+        }
+        addItemInConvo(answer, true);
         displayNextQuestion();
     }
 
@@ -128,11 +141,13 @@ public class ReadChatbot extends AppCompatActivity {
 
             @Override
             public void onError(int error) {
+                voiceStart = false;
                 btn_reading.setImageResource(R.drawable.mic);
             }
 
             @Override
             public void onResults(Bundle results) {
+                voiceStart = false;
                 btn_reading.setImageResource(R.drawable.mic);
             }
 

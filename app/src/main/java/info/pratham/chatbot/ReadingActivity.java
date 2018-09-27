@@ -51,6 +51,7 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
     JSONArray actualReadingData;
     String splitQues[];
     boolean voiceStart = false;
+//    boolean correctArr[];
     public MyTTS ttspeech;
     private SpeechRecognizer speech = null;
 
@@ -178,6 +179,7 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
         }
 
         splitQues = mySentence.split(" ");
+//        correctArr = new boolean[splitQues.length];
 
         for (int i = 0; i < splitQues.length; i++) {
             final TextView myTextView = new TextView(this);
@@ -241,21 +243,17 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
 
         Log.d("STT-Res", "sttResult: " + sttResult + "             sttQuestion: " + sttQuestion);
 
-        String splitQues[] = sttQuestion.split(" ");
         String splitRes[] = sttResult.split(" ");
-        String splitPrevRes[] = finalData.split(" ");
 
-
-        for (int i = 0; i < splitQues.length; i++) {
-            final TextView myView = (TextView) quesFlowLayout.getChildAt(i);
-            String resString = ""+myView.getText();
-            for (int j = 0; j < splitRes.length; j++) {
-                if(splitRes[j].equalsIgnoreCase(resString)) {
-                    myView.setTextColor(Color.GREEN);
+        for (int j = 0; j < splitRes.length; j++) {
+            for (int i = 0; i < splitQues.length; i++) {
+                if(splitRes[j].equalsIgnoreCase(splitQues[i])/* && !correctArr[i]*/) {
+                    ((TextView)quesFlowLayout.getChildAt(i)).setTextColor(Color.GREEN);
+//                    correctArr[i]=true;
+//                    break;
                 }
             }
-        }
-    }
+        }    }
 
     @Override
     public void onEvent(int eventType, Bundle params) {

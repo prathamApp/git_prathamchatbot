@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             messageList.add(new Message(userAnswer, "user"));
             String expectedAnswer = conversation.getJSONObject(currentQueNo).getString("Ans");
-            int percent = getSuccessPercent(userAnswer, expectedAnswer);
+            float percent = getSuccessPercent(userAnswer, expectedAnswer);
             if (percent < 60) {
                 replyText = "Oops! I was expecting: " + expectedAnswer;
                 setReplyResultForCorrection();
@@ -205,8 +205,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private int getSuccessPercent(String userAnswer, String expectedAnswer) {
-        int correctCount = 0;
+    private float getSuccessPercent(String userAnswer, String expectedAnswer) {
+        float correctCount = 0;
         String userAnsArray[] = userAnswer.split(" ");
         String expectedAnsArray[] = expectedAnswer.split(" ");
         for (int expectedIndex = 0; expectedIndex < expectedAnsArray.length; expectedIndex++)
