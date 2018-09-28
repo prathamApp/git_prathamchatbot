@@ -2,7 +2,7 @@
   "conversations": [
     [
       {
-        "Que": "What’s your name?",
+        "Que": "What is your name?",
         "Ans": "My name is Rohan"
       },
       {
@@ -23,7 +23,7 @@
       },
       {
         "Que": "You are in which standard?",
-        "Ans": "I am in fifth standard"
+        "Ans": "I am in 5th standard"
       },
       {
         "Que": "What’s your favourite game?",
@@ -86,8 +86,8 @@
         "Ans": "My favorite food is Biryani"
       },
       {
-        "Que": "Where do you study?",
-        "Ans": "I am a student at Pune University"
+        "Que": "What is your University name?",
+        "Ans": "My university's name is Pune University"
       },
       {
         "Que": "What time do you go to school?",
@@ -98,68 +98,86 @@
         "Ans": "I go to school by Bus"
       },
       {
-        "Que": "Why are you studying English?",
-        "Ans": "Because it is a window to the world"
+        "Que": "What is your favourite song name?",
+        "Ans": "My favourite song's name is Raabta"
       },
       {
-        "Que": "What do you want to do after you graduate?",
-        "Ans": "I would like to be a software engineer"
+        "Que": "What do you want to be?",
+        "Ans": "I want to be a Doctor"
       },
       {
-        "Que": "How did you learn English?",
-        "Ans": "I picked it up from movies and songs"
+        "Que": "Which actor do you like the most?",
+        "Ans": "I like Hritik the most"
       },
       {
         "Que": "How many languages do you speak?",
         "Ans": "I speak two languages"
       },
       {
-        "Que": "Can you speak English?",
-        "Ans": "I can express myself and communicate in English"
+        "Que": "Which state do you live in?",
+        "Ans": "I live in Maharashtra state"
       },
       {
-        "Que": "How long have you learning English?",
-        "Ans": "I have been learning English for 10 years"
+        "Que": "Who do you like the most among Mother and Father?",
+        "Ans": "I like Father the most"
       },
       {
-        "Que": "Which year are you in?",
-        "Ans": "I am in my third year"
-      },
-      {
-        "Que": "Do you have any exams coming up?",
-        "Ans": " I have just graduated"
-      },
-      {
-        "Que": "What’s the weather like?",
-        "Ans": "It is hot and windy"
-      },
-      {
-        "Que": "What time is it?",
-        "Ans": "It is half past three"
-      },
-      {
-        "Que": "What’s the date today?",
-        "Ans": "27th of September"
-      },
-      {
-        "Que": "How are you?",
-        "Ans": "I am fine thank you How about you"
-      },
-      {
-        "Que": "Where are you going?",
-        "Ans": "I am going to the store I need to buy something"
-      },
-      {
-        "Que": "What are you going to do today?",
-        "Ans": "I am going shopping"
-      },
-      {
-        "Que": "What are you doing?",
-        "Ans": "I am reading a book"
+        "Que": "Which sport you love to play?",
+        "Ans": "I love to play football"
       },
       {
         "Que": "Where would you like to go?",
         "Ans": "I would like to go to the zoo"
+      }
+    ],
+    [
+      {
+        "Que": "What’s the matter?",
+        "Ans": "I do not feel so good"
+      },
+      {
+        "Que": "Are you sick?",
+        "Ans": "yes i have got high fever and headache"
+      },
+      {
+        "Que": "when did this all start",
+        "Ans": "i had fever yestrday night"
+      },
+      {
+        "Que": "Did you take any medicine?",
+        "Ans": "yes but i guess it is not working"
+      },
+      {
+        "Que": "and now how is your health",
+        "Ans": "not improved since last night"
+      },
+      {
+        "Que": "Is there anything I can do to help?",
+        "Ans": "Can you please call the doctor for me"
+      },
+      {
+        "Que": "ok, sure. Where is Doctors number written.?",
+        "Ans": "It is written in the diary over there"
+      },
+      {
+        "Que": "ok, and whats the name of the doctor?",
+        "Ans": "his name is doctor John"
+      },
+      {
+        "Que": "the doctor will be arriving in about an hour",
+        "Ans": "that is fine thank you so much"
+      },
+      {
+        "Que": "is there any other way in which i can assist you?",
+        "Ans": "can you please get me a glass of water"
+      },
+      {
+        "Que": "yes sure, give me a moment",
+        "Ans": "No problem"
+      },
+      {
+        "Que": "here is your water",
+        "Ans": "thank you again"
       }
     ],
     [

@@ -33,7 +33,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import info.pratham.chatbot.tts_classes.MyTTS;
 
-
 public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.recyclerView)
