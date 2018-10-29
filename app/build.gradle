@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 
+def buildDateTime = new Date().format('yyMMdd').toInteger()
+//and assign it like this:: "versionCode buildDateTime"
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -7,7 +9,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 27
         multiDexEnabled true
-        versionCode 1
+        versionCode buildDateTime
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -22,7 +24,7 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     //noinspection GradleCompatible
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:appcompat-v7:27.+'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
@@ -33,8 +35,11 @@ dependencies {
     implementation 'com.jakewharton:butterknife:8.7.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.7.0'
     //Recyclerview
-    implementation "com.android.support:recyclerview-v7:27.0.1"
+    implementation "com.android.support:recyclerview-v7:27.+"
     // CardView
-    implementation 'com.android.support:cardview-v7:27.1.+'
-
+    implementation 'com.android.support:cardview-v7:27.+'
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.nex3z:flow-layout:1.1.0'
+    implementation 'com.android.support:design:27.1.0'
 }

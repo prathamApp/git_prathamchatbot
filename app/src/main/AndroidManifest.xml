@@ -38,6 +38,8 @@
             android:screenOrientation="portrait" />
         <activity android:name=".ReadChatbot"
             android:screenOrientation="portrait"/>
+        <activity android:name=".menuDisplay.ContentDisplay"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

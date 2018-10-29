@@ -11,6 +11,7 @@ import android.widget.Button;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import info.pratham.chatbot.menuDisplay.ContentDisplay;
 import info.pratham.chatbot.permissions.ActivityManagePermission;
 import info.pratham.chatbot.permissions.PermissionResult;
 import info.pratham.chatbot.permissions.PermissionUtils;
@@ -46,7 +47,7 @@ public class SplashActivity extends ActivityManagePermission implements Permissi
     }
 
     public void gotoNext() {
-        startActivity(new Intent(SplashActivity.this, MenuActivity.class));
+        startActivity(new Intent(SplashActivity.this, ContentDisplay.class));
 
     }
 
