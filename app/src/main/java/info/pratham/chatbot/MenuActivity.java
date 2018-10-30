@@ -4,21 +4,16 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import info.pratham.chatbot.menuDisplay.ContentDisplay;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -50,7 +45,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                sysLang="en-IN";
+                sysLang = "en-IN";
                 Intent intent = new Intent(MenuActivity.this, ReadingActivity.class);
                 intent.putExtra("selectedLang", "English");
                 startActivity(intent);
@@ -61,10 +56,11 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                sysLang="hi-IN";
+                sysLang = "hi-IN";
                 Intent intent = new Intent(MenuActivity.this, ReadingActivity.class);
                 intent.putExtra("selectedLang", "Hindi");
-                startActivity(intent);            }
+                startActivity(intent);
+            }
         });
     }
 
@@ -85,10 +81,11 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                sysLang="en-IN";
-                Intent intent = new Intent(MenuActivity.this, MainActivity.class);
+                sysLang = "en-IN";
+                startActivity(new Intent(MenuActivity.this, ContentDisplay.class));
+/*                Intent intent = new Intent(MenuActivity.this, MainActivity.class);
                 intent.putExtra("selectedLang", "English");
-                startActivity(intent);
+                startActivity(intent);*/
             }
         });
 
@@ -96,20 +93,22 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                sysLang="en-IN";
-                Intent intent = new Intent(MenuActivity.this, ReadChatbot.class);
+                sysLang = "en-IN";
+                startActivity(new Intent(MenuActivity.this, ContentDisplay.class));
+/*                Intent intent = new Intent(MenuActivity.this, ReadChatbot.class);
                 intent.putExtra("selectedLang", "English");
-                startActivity(intent);            }
+                startActivity(intent);*/
+            }
         });
     }
 
-    @OnClick( R.id.btn_reading)
-    public void StartReading(){
+    @OnClick(R.id.btn_reading)
+    public void StartReading() {
         showLangDialog();
     }
 
-    @OnClick( R.id.btn_chat)
-    public void StartChat(){
+    @OnClick(R.id.btn_chat)
+    public void StartChat() {
         showChatDialog();
     }
 }

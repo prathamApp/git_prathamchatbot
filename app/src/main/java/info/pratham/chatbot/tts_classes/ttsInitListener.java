@@ -13,7 +13,7 @@ class ttsInitListener implements TextToSpeech.OnInitListener {
     @Override
     public void onInit(int status) {
         if (status == TextToSpeech.SUCCESS) {
-            textToSpeech.setLanguage(new Locale(MenuActivity.sysLang));
+            textToSpeech.setLanguage(Locale.ENGLISH);
             textToSpeech.setSpeechRate((float)0.4);
             textToSpeech.setPitch((float) 1);
         } else {

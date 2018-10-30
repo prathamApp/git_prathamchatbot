@@ -3,18 +3,15 @@ package info.pratham.chatbot;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.AudioManager;
+import android.os.Bundle;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.nex3z.flowlayout.FlowLayout;
 
@@ -23,8 +20,6 @@ import org.json.JSONObject;
 
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 import butterknife.BindView;
@@ -32,7 +27,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import info.pratham.chatbot.tts_classes.MyTTS;
 
-public class ReadingActivity extends AppCompatActivity implements RecognitionListener{
+public class ReadingActivity extends AppCompatActivity implements RecognitionListener {
 
     @BindView(R.id.myflowlayout2)
     FlowLayout quesFlowLayout;
@@ -46,14 +41,42 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
     TextView tv_mic;
 
 
-    String selectedLanguage, systemLang="", mySentence = "",finalData="";
+    String selectedLanguage, systemLang = "", mySentence = "", finalData = "";
     Intent intent;
     JSONArray actualReadingData;
     String splitQues[];
-    boolean voiceStart = false;
-//    boolean correctArr[];
+    boolean voiceStart = false, stopFlg = false;
+    boolean correctArr[];
     public MyTTS ttspeech;
     private SpeechRecognizer speech = null;
+
+    private static final int PERMISSIONS_REQUEST_RECORD_AUDIO = 1;
+    private Intent recognizerIntent;
+    int original_volume_level;
+    private String LOG_TAG = "VoiceRecognitionActivity";
+    private AudioManager audioManager;
+
+    private void resetSpeechRecognizer() {
+
+        if (speech != null)
+            speech.destroy();
+        speech = SpeechRecognizer.createSpeechRecognizer(this);
+        Log.i(LOG_TAG, "isRecognitionAvailable: " + SpeechRecognizer.isRecognitionAvailable(this));
+        if (SpeechRecognizer.isRecognitionAvailable(this))
+            speech.setRecognitionListener(this);
+        else
+            finish();
+    }
+
+    private void setRecogniserIntent() {
+        recognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_PREFERENCE,
+                "en");
+        recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        recognizerIntent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 3);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,34 +85,25 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
         ButterKnife.bind(this);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        int btnWidth = btnSpeak.getWidth();
+        selectedLanguage = "english";
+/*        selectedLanguage = getIntent().getStringExtra("selectedLang");
+        if (selectedLanguage.equalsIgnoreCase("english"))
+            systemLang = "en-IN";
+        else
+            systemLang = "hi-IN";*/
 
-        Toast.makeText(this, ""+btnWidth, Toast.LENGTH_SHORT).show();
+        ttspeech = new MyTTS(this, "en-IN");
+
+        audioManager = (AudioManager) getSystemService(this.AUDIO_SERVICE);
+
+        int btnWidth = btnSpeak.getWidth();
 
         btnSpeak.getLayoutParams().height = 1;
 
-
-        selectedLanguage = getIntent().getStringExtra("selectedLang");
-        if(selectedLanguage.equalsIgnoreCase("english"))
-            systemLang="en-IN";
-        else
-            systemLang="hi-IN";
-
-        ttspeech = new MyTTS(this,systemLang);
-
-        speech = SpeechRecognizer.createSpeechRecognizer(this);
-        speech.setRecognitionListener(this);
-        startSTTIntent();
-    }
-
-
-    public void startSTTIntent() {
-        intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, systemLang);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        intent.putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true);
-        intent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 5);
+        //speech.setRecognitionListener(this);
         getReadingData();
+        // start speech recogniser
+        resetSpeechRecognizer();
     }
 
     public void getReadingData() {
@@ -98,7 +112,7 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
         getNextSentence();
     }
 
-    public JSONArray languageData(){
+    public JSONArray languageData() {
         try {
             JSONArray readingData = getJsonData();
             for (int i = 0; i < readingData.length(); i++) {
@@ -132,6 +146,9 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
 
     @OnClick(R.id.btnHear)
     public void playQues() {
+        if (voiceStart) {
+            micActive();
+        }
         ttspeech.playTTS(mySentence);
     }
 
@@ -139,16 +156,17 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
     public void micActive() {
         if (!voiceStart) {
             voiceStart = true;
-            finalData="";
+            finalData = "";
             tv_mic.setText("Stop");
             btnSpeak.setImageResource(R.drawable.stop);
             startSpeechInput();
         } else {
-            stopSpeechInput();
+            voiceStart = false;
             tv_mic.setText("Speak");
             btnSpeak.setImageResource(R.drawable.mic);
-            voiceStart = false;
+            //audioManager.setMicrophoneMute(false);
             stopSpeechInput();
+            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, AudioManager.ADJUST_UNMUTE, 0);
         }
     }
 
@@ -157,7 +175,9 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
     }
 
     private void startSpeechInput() {
-        speech.startListening(intent);
+        //speech.startListening(intent);
+        setRecogniserIntent();
+        speech.startListening(recognizerIntent);
     }
 
 
@@ -166,11 +186,12 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
         quesFlowLayout.removeAllViewsInLayout();
         try {
             if (voiceStart) {
-                stopSpeechInput();
+                micActive();
                 tv_mic.setText("Speak");
                 btnSpeak.setImageResource(R.drawable.mic);
                 voiceStart = false;
                 stopSpeechInput();
+                resetSpeechRecognizer();
             }
             int randomNum = ThreadLocalRandom.current().nextInt(0, actualReadingData.length());
             mySentence = actualReadingData.getJSONObject(randomNum).getString("data");
@@ -179,7 +200,7 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
         }
 
         splitQues = mySentence.split(" ");
-//        correctArr = new boolean[splitQues.length];
+        correctArr = new boolean[splitQues.length];
 
         for (int i = 0; i < splitQues.length; i++) {
             final TextView myTextView = new TextView(this);
@@ -188,18 +209,40 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
             myTextView.setTextColor(Color.YELLOW);
             quesFlowLayout.addView(myTextView);
         }
-
     }
 
+    @Override
+    public void onResume() {
+        Log.i(LOG_TAG, "resume");
+        super.onResume();
+        resetSpeechRecognizer();
+//        speech.startListening(recognizerIntent);
+    }
+
+    @Override
+    protected void onPause() {
+        Log.i(LOG_TAG, "pause");
+        super.onPause();
+        speech.stopListening();
+    }
+
+    @Override
+    protected void onStop() {
+        Log.i(LOG_TAG, "stop");
+        super.onStop();
+        if (speech != null) {
+            speech.destroy();
+        }
+    }
 
     @Override
     public void onReadyForSpeech(Bundle params) {
-
     }
 
     @Override
     public void onBeginningOfSpeech() {
-
+        audioManager.adjustStreamVolume(AudioManager.STREAM_MUSIC, AudioManager.ADJUST_MUTE, 0);
+        Log.i(LOG_TAG, "onBeginningOfSpeech");
     }
 
     @Override
@@ -214,27 +257,57 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
 
     @Override
     public void onEndOfSpeech() {
-
+        speech.stopListening();
     }
 
     @Override
     public void onError(int error) {
-        voiceStart = false;
+        /*voiceStart = false;
         tv_mic.setText("Speak");
-        btnSpeak.setImageResource(R.drawable.mic);
+        btnSpeak.setImageResource(R.drawable.mic);*/
+        resetSpeechRecognizer();
+        speech.startListening(recognizerIntent);
+//        btnSpeak.setImageResource(R.drawable.stop);
     }
 
     @Override
     public void onResults(Bundle results) {
-        voiceStart = false;
-        tv_mic.setText("Speak");
-        btnSpeak.setImageResource(R.drawable.mic);
+        //voiceStart = false;
+        /*tv_mic.setText("Speak");
+        btnSpeak.setImageResource(R.drawable.mic);*/
+
+        Log.i(LOG_TAG, "onResults");
+        ArrayList<String> matches = results
+                .getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
+
+        String sttResult = matches.get(0);
+        String sttQuestion = mySentence;
+
+        Log.d("STT-Res", "sttResult: " + sttResult + "             sttQuestion: " + sttQuestion);
+        Log.d("STT-Res", "\n");
+
+        String splitRes[] = sttResult.split(" ");
+
+        for (int j = 0; j < splitRes.length; j++) {
+            for (int i = 0; i < splitQues.length; i++) {
+                if (splitRes[j].equalsIgnoreCase(splitQues[i]) && !correctArr[i]) {
+                    ((TextView) quesFlowLayout.getChildAt(i)).setTextColor(Color.GREEN);
+                    correctArr[i] = true;
+                    break;
+                }
+            }
+        }
+        if (!voiceStart)
+            resetSpeechRecognizer();
+        else
+            speech.startListening(recognizerIntent);
+
     }
 
     @Override
     public void onPartialResults(Bundle partialResults) {
-        System.out.println("LogTag"+ " onResults");
-        ArrayList<String> matches = partialResults
+        System.out.println("LogTag" + " onResults");
+/*        ArrayList<String> matches = partialResults
                 .getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
 
 
@@ -247,16 +320,37 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
 
         for (int j = 0; j < splitRes.length; j++) {
             for (int i = 0; i < splitQues.length; i++) {
-                if(splitRes[j].equalsIgnoreCase(splitQues[i])/* && !correctArr[i]*/) {
-                    ((TextView)quesFlowLayout.getChildAt(i)).setTextColor(Color.GREEN);
+                if (splitRes[j].equalsIgnoreCase(splitQues[i])*//* && !correctArr[i]*//*) {
+                    ((TextView) quesFlowLayout.getChildAt(i)).setTextColor(Color.GREEN);
 //                    correctArr[i]=true;
 //                    break;
                 }
             }
-        }    }
+        }*/
+    }
 
     @Override
     public void onEvent(int eventType, Bundle params) {
 
     }
 }
+
+
+/*
+<ScrollView
+                    android:id="@+id/myScrollView2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center">
+
+<com.nex3z.flowlayout.FlowLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/myflowlayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginVertical="5dp"
+        app:flChildSpacing="7dp"
+        app:flChildSpacingForLastRow="align"
+        app:flRowSpacing="5dp"></com.nex3z.flowlayout.FlowLayout>
+</ScrollView>
+*/

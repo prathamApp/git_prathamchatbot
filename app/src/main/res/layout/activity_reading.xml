@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/a8"
+    android:background="@drawable/abg"
     android:orientation="vertical"
     android:weightSum="10">
 
@@ -107,7 +107,7 @@
                         android:fontFeatureSettings=""
                         android:gravity="center"
                         android:text="Speak"
-                        android:textColor="@color/white"
+                        android:textColor="@color/simple_black"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -139,7 +139,7 @@
                         android:fontFeatureSettings=""
                         android:gravity="center"
                         android:text="Listen"
-                        android:textColor="@color/white"
+                        android:textColor="@color/simple_black"
                         android:textSize="18sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -169,7 +169,7 @@
                         android:fontFeatureSettings=""
                         android:gravity="center"
                         android:text="Next"
-                        android:textColor="@color/white"
+                        android:textColor="@color/simple_black"
                         android:textSize="18sp"
                         android:textStyle="bold" />
                 </LinearLayout>
