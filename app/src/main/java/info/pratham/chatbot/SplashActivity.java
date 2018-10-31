@@ -47,7 +47,7 @@ public class SplashActivity extends ActivityManagePermission implements Permissi
     }
 
     public void gotoNext() {
-        Intent intent = new Intent(SplashActivity.this, ReadingActivity.class);
+        Intent intent = new Intent(SplashActivity.this, MenuActivity.class);
         intent.putExtra("selectedLang", "English");
         startActivity(intent);
     }

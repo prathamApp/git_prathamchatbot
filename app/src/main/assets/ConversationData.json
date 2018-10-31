@@ -4,132 +4,159 @@
       "convoTitle": "conversation 1",
       "convoList": [
         {
-          "Que": "What is your name?",
-          "Ans": "My name is Rohan"
+          "MessageNo":"1",
+          "PersonA":[
+            {
+              "data": "What is your name"
+            },
+            {
+              "data": "May I know your name"
+            },
+            {
+              "data": "Tell us your name"
+            },
+            {
+              "data": "What is your first name"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "My name is Montu"
+            },
+            {
+              "data": "I am Montu"
+            },
+            {
+              "data": "This is Montu"
+            },
+            {
+              "data": "My first name is Montu"
+            }
+          ]
         },
         {
-          "Que": "Where are you from?",
-          "Ans": "I am from Pune"
+          "MessageNo":"2",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
         },
         {
-          "Que": "Where do you live?",
-          "Ans": "I live in Pune"
+          "MessageNo":"3",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
         },
         {
-          "Que": "How old are you?",
-          "Ans": "I am 10 years old"
+          "MessageNo":"4",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
         },
         {
-          "Que": "When is your birthday?",
-          "Ans": "My birthday is on December 10th"
-        },
-        {
-          "Que": "You are in which standard?",
-          "Ans": "I am in 5th standard"
-        },
-        {
-          "Que": "What’s your favourite game?",
-          "Ans": "My favourite game is chess"
-        },
-        {
-          "Que": "What do you do?/ What’s your job?",
-          "Ans": "I am a student"
-        },
-        {
-          "Que": "Which subject do you like the most?",
-          "Ans": "I like maths subject the most"
-        },
-        {
-          "Que": "What is your school name?",
-          "Ans": "My school name is saint peter"
-        },
-        {
-          "Que": "What religion are you?",
-          "Ans": "I am a Hindu"
-        },
-        {
-          "Que": "What is your contry name?",
-          "Ans": "My country's name India"
-        },
-        {
-          "Que": "Who do you live with?",
-          "Ans": "I live with my parents"
-        },
-        {
-          "Que": "What time do you get up?",
-          "Ans": "I get up at 6 in the morning"
-        },
-        {
-          "Que": "When do you do morning exercises?",
-          "Ans": "I do morning exercises at 7"
-        },
-        {
-          "Que": "What time do you have breakfast?",
-          "Ans": "I have breakfast at 8"
-        },
-        {
-          "Que": "What time do you go to bed?",
-          "Ans": "I go to bed at 11 in the night"
-        },
-        {
-          "Que": "What’s your favorite color?",
-          "Ans": "My favorite color is red"
-        },
-        {
-          "Que": "What’s your hobby?",
-          "Ans": "My hobby is singing"
-        },
-        {
-          "Que": "What’s your favorite drink?",
-          "Ans": "My favorite drink is Lemon Tea"
-        },
-        {
-          "Que": "What’s your favorite food?",
-          "Ans": "My favorite food is Biryani"
-        },
-        {
-          "Que": "What is your University name?",
-          "Ans": "My university's name is Pune University"
-        },
-        {
-          "Que": "What time do you go to school?",
-          "Ans": "I go to school at 10 in the morning"
-        },
-        {
-          "Que": "How do you get to school?",
-          "Ans": "I go to school by Bus"
-        },
-        {
-          "Que": "What is your favourite song name?",
-          "Ans": "My favourite song's name is Raabta"
-        },
-        {
-          "Que": "What do you want to be?",
-          "Ans": "I want to be a Doctor"
-        },
-        {
-          "Que": "Which actor do you like the most?",
-          "Ans": "I like Hritik the most"
-        },
-        {
-          "Que": "How many languages do you speak?",
-          "Ans": "I speak two languages"
-        },
-        {
-          "Que": "Which state do you live in?",
-          "Ans": "I live in Maharashtra state"
-        },
-        {
-          "Que": "Who do you like the most among Mother and Father?",
-          "Ans": "I like Father the most"
-        },
-        {
-          "Que": "Which sport you love to play?",
-          "Ans": "I love to play football"
-        },
-        {
-          "Que": "Where would you like to go?",
-          "Ans": "I would like to go to the zoo"
+          "MessageNo":"5",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
         }
       ]
     },
@@ -137,52 +164,159 @@
       "convoTitle": "conversation 2",
       "convoList": [
         {
-          "Que": "What’s the matter?",
-          "Ans": "I do not feel so good"
+          "MessageNo":"1",
+          "PersonA":[
+            {
+              "data": "What is your name"
+            },
+            {
+              "data": "May I know your name"
+            },
+            {
+              "data": "Tell us your name"
+            },
+            {
+              "data": "What is your first name"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "My name is Montu"
+            },
+            {
+              "data": "I am Montu"
+            },
+            {
+              "data": "This is Montu"
+            },
+            {
+              "data": "My first name is Montu"
+            }
+          ]
         },
         {
-          "Que": "Are you sick?",
-          "Ans": "yes i have got high fever and headache"
+          "MessageNo":"2",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
         },
         {
-          "Que": "when did this all start",
-          "Ans": "i had fever yestrday night"
+          "MessageNo":"3",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
         },
         {
-          "Que": "Did you take any medicine?",
-          "Ans": "yes but i guess it is not working"
+          "MessageNo":"4",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
         },
         {
-          "Que": "and now how is your health",
-          "Ans": "not improved since last night"
-        },
-        {
-          "Que": "Is there anything I can do to help?",
-          "Ans": "Can you please call the doctor for me"
-        },
-        {
-          "Que": "ok, sure. Where is Doctors number written.?",
-          "Ans": "It is written in the diary over there"
-        },
-        {
-          "Que": "ok, and whats the name of the doctor?",
-          "Ans": "his name is doctor John"
-        },
-        {
-          "Que": "the doctor will be arriving in about an hour",
-          "Ans": "that is fine thank you so much"
-        },
-        {
-          "Que": "is there any other way in which i can assist you?",
-          "Ans": "can you please get me a glass of water"
-        },
-        {
-          "Que": "yes sure, give me a moment",
-          "Ans": "No problem"
-        },
-        {
-          "Que": "here is your water",
-          "Ans": "thank you again"
+          "MessageNo":"5",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
         }
       ]
     },
@@ -190,124 +324,159 @@
       "convoTitle": "conversation 3",
       "convoList": [
         {
-          "Que": "What’s the matter?",
-          "Ans": "I do not feel so good"
+          "MessageNo":"1",
+          "PersonA":[
+            {
+              "data": "What is your name"
+            },
+            {
+              "data": "May I know your name"
+            },
+            {
+              "data": "Tell us your name"
+            },
+            {
+              "data": "What is your first name"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "My name is Montu"
+            },
+            {
+              "data": "I am Montu"
+            },
+            {
+              "data": "This is Montu"
+            },
+            {
+              "data": "My first name is Montu"
+            }
+          ]
         },
         {
-          "Que": "Is there anything I can do to help?",
-          "Ans": "Everything will be OK"
+          "MessageNo":"2",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
         },
         {
-          "Que": "What’s on your mind?",
-          "Ans": "I am just thinking"
+          "MessageNo":"3",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
         },
         {
-          "Que": "What did you do last night?",
-          "Ans": "I watched TV"
+          "MessageNo":"4",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
         },
         {
-          "Que": "What are you going to do tomorrow?",
-          "Ans": "I am going to go play volleyball at the beach"
-        },
-        {
-          "Que": "What sports can you play?",
-          "Ans": "I can play tennis basketball football"
-        },
-        {
-          "Que": "Can you give me a hand?",
-          "Ans": "No problem"
-        },
-        {
-          "Que": "Could you do me a favor?",
-          "Ans": "I would be happy to help you"
-        },
-        {
-          "Que": "How can I help you?/ May I help you?",
-          "Ans": "Yes I am looking for a sweater"
-        },
-        {
-          "Que": "Could you please give me that book?",
-          "Ans": "Sure why not"
-        },
-        {
-          "Que": "Would you mind opening the window?",
-          "Ans": "It would be my pleasure"
-        },
-        {
-          "Que": "Can I try it on?",
-          "Ans": "Sure the changing rooms are over there"
-        },
-        {
-          "Que": "What size do you wear?",
-          "Ans": "I take a size 11"
-        },
-        {
-          "Que": "Is that a good fit?",
-          "Ans": "It is just right"
-        },
-        {
-          "Que": "How much is it?/ How much does it cost?",
-          "Ans": "It is 11 dollars"
-        },
-        {
-          "Que": "How would you like to pay?",
-          "Ans": "I would like to pay by cash"
-        },
-        {
-          "Que": "Do you need anything else?",
-          "Ans": "No thanks"
-        },
-        {
-          "Que": "How are you feeling?",
-          "Ans": "Great never better"
-        },
-        {
-          "Que": "How was the party?",
-          "Ans": "It was a good time"
-        },
-        {
-          "Que": "Are you ready to order?",
-          "Ans": "We need a few more minutes"
-        },
-        {
-          "Que": "Would you like chicken or pasta?",
-          "Ans": "I would like a pasta"
-        },
-        {
-          "Que": "What would you like to drink?",
-          "Ans": "Iced Tea"
-        },
-        {
-          "Que": "Did you save room for dessert?",
-          "Ans": "Yes please. Can I see a list"
-        },
-        {
-          "Que": "How does it taste?",
-          "Ans": "It’s delicious"
-        },
-        {
-          "Que": "Can I get you anything else?",
-          "Ans": "No thank you"
-        },
-        {
-          "Que": "What do you think about this event?",
-          "Ans": "I really like it what do you think"
-        },
-        {
-          "Que": "Are you here with anybody?",
-          "Ans": "I came with my best friend"
-        },
-        {
-          "Que": "Have you got a pet?",
-          "Ans": "Yes I have got a puppy"
-        },
-        {
-          "Que": "How do you do?",
-          "Ans": "I am doing great pleased to meet you"
-        },
-        {
-          "Que": "What’s this?",
-          "Ans": "This is a pencil"
+          "MessageNo":"5",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
         }
       ]
     },
@@ -315,124 +484,639 @@
       "convoTitle": "conversation 4",
       "convoList": [
         {
-          "Que": "What do you think about this event?",
-          "Ans": "I really like it"
+          "MessageNo":"1",
+          "PersonA":[
+            {
+              "data": "What is your name"
+            },
+            {
+              "data": "May I know your name"
+            },
+            {
+              "data": "Tell us your name"
+            },
+            {
+              "data": "What is your first name"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "My name is Montu"
+            },
+            {
+              "data": "I am Montu"
+            },
+            {
+              "data": "This is Montu"
+            },
+            {
+              "data": "My first name is Montu"
+            }
+          ]
         },
         {
-          "Que": "Are you here with anybody?",
-          "Ans": "I came with my best friend"
+          "MessageNo":"2",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
         },
         {
-          "Que": "Have you got a pet?",
-          "Ans": "No"
+          "MessageNo":"3",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
         },
         {
-          "Que": "What’s this?",
-          "Ans": "This is a pencil"
+          "MessageNo":"4",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
         },
         {
-          "Que": "How is she?",
-          "Ans": "She is pretty"
+          "MessageNo":"5",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "convoTitle": "conversation 5",
+      "convoList": [
+        {
+          "MessageNo":"1",
+          "PersonA":[
+            {
+              "data": "What is your name"
+            },
+            {
+              "data": "May I know your name"
+            },
+            {
+              "data": "Tell us your name"
+            },
+            {
+              "data": "What is your first name"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "My name is Montu"
+            },
+            {
+              "data": "I am Montu"
+            },
+            {
+              "data": "This is Montu"
+            },
+            {
+              "data": "My first name is Montu"
+            }
+          ]
         },
         {
-          "Que": "Hey, what is your name?",
-          "Ans": "My name is"
+          "MessageNo":"2",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
         },
         {
-          "Que": "What is he like?",
-          "Ans": "He is very smart and brave"
+          "MessageNo":"3",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
         },
         {
-          "Que": "Are you hungry?",
-          "Ans": "No I’m full"
+          "MessageNo":"4",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
         },
         {
-          "Que": "How do you feel about him?",
-          "Ans": "He is quite friendly and helpful"
+          "MessageNo":"5",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "convoTitle": "conversation 6",
+      "convoList": [
+        {
+          "MessageNo":"1",
+          "PersonA":[
+            {
+              "data": "What is your name"
+            },
+            {
+              "data": "May I know your name"
+            },
+            {
+              "data": "Tell us your name"
+            },
+            {
+              "data": "What is your first name"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "My name is Montu"
+            },
+            {
+              "data": "I am Montu"
+            },
+            {
+              "data": "This is Montu"
+            },
+            {
+              "data": "My first name is Montu"
+            }
+          ]
         },
         {
-          "Que": "May I open the window?",
-          "Ans": "Certainly It’s very hot in the office today"
+          "MessageNo":"2",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
         },
         {
-          "Que": "Do you need help?",
-          "Ans": "I am good thanks for asking"
+          "MessageNo":"3",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
         },
         {
-          "Que": "What do you do every day?",
-          "Ans": "I listen to music and play badminton everyday"
+          "MessageNo":"4",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
         },
         {
-          "Que": "What are you planning to do today?",
-          "Ans": "I am not sure yet"
+          "MessageNo":"5",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "convoTitle": "conversation 7",
+      "convoList": [
+        {
+          "MessageNo":"1",
+          "PersonA":[
+            {
+              "data": "What is your name"
+            },
+            {
+              "data": "May I know your name"
+            },
+            {
+              "data": "Tell us your name"
+            },
+            {
+              "data": "What is your first name"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "My name is Montu"
+            },
+            {
+              "data": "I am Montu"
+            },
+            {
+              "data": "This is Montu"
+            },
+            {
+              "data": "My first name is Montu"
+            }
+          ]
         },
         {
-          "Que": "What are you planning for after work?",
-          "Ans": "I am going shopping with my friends"
+          "MessageNo":"2",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
         },
         {
-          "Que": "Are you free tomorrow?",
-          "Ans": "No problem we can meet tomorrow"
+          "MessageNo":"3",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
         },
         {
-          "Que": "Will you join me for coffee?",
-          "Ans": "Sorry I am afraid I do not have time"
+          "MessageNo":"4",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
         },
         {
-          "Que": "Could we have lunch together one day?",
-          "Ans": "With pleasure"
-        },
-        {
-          "Que": "Would you like to have dinner with me?",
-          "Ans": "Yes That would be nice"
-        },
-        {
-          "Que": "Where do you want to go?",
-          "Ans": "I would like to go to a Japanese restaurant"
-        },
-        {
-          "Que": "Would you like to come to the cinema with me tonight?",
-          "Ans": "Sorry I cannot I have got other plans"
-        },
-        {
-          "Que": "Would you like to play a round of golf this weekend?",
-          "Ans": "That would be great"
-        },
-        {
-          "Que": "How about coming to the barbecue at the tennis club?",
-          "Ans": "Nice of you to ask me but I have got an appointment"
-        },
-        {
-          "Que": "Have you been waiting long?",
-          "Ans": "Only a few minutes"
-        },
-        {
-          "Que": "How do you get to work?",
-          "Ans": "I usually drive my car"
-        },
-        {
-          "Que": "Could you tell me how to get to the police station?",
-          "Ans": "Take the second road on the right"
-        },
-        {
-          "Que": "Excuse me! Is there a bank near here?",
-          "Ans": "I am sorry I do not know"
-        },
-        {
-          "Que": "What’s the best way to the museum?",
-          "Ans": "You could ask the bus driver"
-        },
-        {
-          "Que": "Did you get my message?",
-          "Ans": "Oh yeah I think I got something from you"
-        },
-        {
-          "Que": "Are you sick?",
-          "Ans": "Yes I am sick"
-        },
-        {
-          "Que": "Are you on any sort of medication?",
-          "Ans": "I need a sick note"
+          "MessageNo":"5",
+          "PersonA":[
+            {
+              "data": "Person A option 1"
+            },
+            {
+              "data": "Person A option 2"
+            },
+            {
+              "data": "Person A option 3"
+            },
+            {
+              "data": "Person A option 4"
+            }
+          ],
+          "PersonB":[
+            {
+              "data": "Person B option 1"
+            },
+            {
+              "data": "Person B option 2"
+            },
+            {
+              "data": "Person B option 3"
+            },
+            {
+              "data": "Person B option 4"
+            }
+          ]
         }
       ]
     }

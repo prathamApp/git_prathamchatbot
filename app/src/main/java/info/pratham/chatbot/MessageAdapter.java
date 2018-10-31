@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -29,7 +29,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.text) TextView mTextView;
 
-        public ViewHolder(LinearLayout v) {
+        public ViewHolder(RelativeLayout v) {
             super(v);
             ButterKnife.bind(this,v);
         }
@@ -39,11 +39,11 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     public MessageAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == 1) {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_item_purple, parent, false);
-            ViewHolder vh = new ViewHolder((LinearLayout) v);
+            ViewHolder vh = new ViewHolder((RelativeLayout) v);
             return vh;
         } else {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_item_green, parent, false);
-            ViewHolder vh = new ViewHolder((LinearLayout) v);
+            ViewHolder vh = new ViewHolder((RelativeLayout) v);
             return vh;
         }
     }

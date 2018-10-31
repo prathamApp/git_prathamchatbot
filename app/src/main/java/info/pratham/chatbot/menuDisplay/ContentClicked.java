@@ -6,5 +6,5 @@ package info.pratham.chatbot.menuDisplay;
 
 public interface ContentClicked {
 
-    public void onStoryClicked(int position, String id, String storyData, String storyId, String storyTitle);
+    public void onStoryClicked(int position, String id, String contentData, String contentId, String contentName);
 }

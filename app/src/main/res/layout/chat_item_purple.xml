@@ -1,21 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/itenLeft"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="2dp">
 
+    <LinearLayout
+        android:id="@+id/arrow"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginVertical="5dp"
+        android:background="@drawable/pratham_logo"
+        android:orientation="horizontal" />
+
     <TextView
-        android:background="@drawable/left_chat"
+        android:layout_toRightOf="@id/arrow"
+        android:background="@color/colorAccent"
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
-        android:layout_margin="5dp"
+        android:layout_marginVertical="5dp"
         android:gravity="left"
-        android:paddingHorizontal="20dp"
+        android:paddingHorizontal="10dp"
         android:paddingVertical="10dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#000000" />
-</LinearLayout>
+
+</RelativeLayout>

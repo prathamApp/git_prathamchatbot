@@ -117,15 +117,13 @@ public class  ContentDisplay extends AppCompatActivity implements ContentClicked
 
 
     @Override
-    public void onStoryClicked(int position, String id, String storyData, String storyId, String storyTitle) {
+    public void onStoryClicked(int position, String id, String contentData, String contentId, String contentName) {
 //        this.finish();
         Intent mainNew = new Intent(ContentDisplay.this, ReadChatbot.class);
-        mainNew.putExtra("storyData", storyData);
-        mainNew.putExtra("storyId", storyId);
-        mainNew.putExtra("StudentID", studentID);
-        mainNew.putExtra("storyTitle", storyTitle);
-        mainNew.putExtra("sdCardPathString", sdCardPathString);
-        mainNew.putExtra("readType", readType);
+        mainNew.putExtra("contentData", contentData);
+        mainNew.putExtra("contentId", contentId);
+        mainNew.putExtra("studentID", studentID);
+        mainNew.putExtra("contentName", contentName);
         startActivity(mainNew);
     }
 
