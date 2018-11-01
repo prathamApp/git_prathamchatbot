@@ -262,19 +262,12 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
 
     @Override
     public void onError(int error) {
-        /*voiceStart = false;
-        tv_mic.setText("Speak");
-        btnSpeak.setImageResource(R.drawable.mic);*/
         resetSpeechRecognizer();
         speech.startListening(recognizerIntent);
-//        btnSpeak.setImageResource(R.drawable.stop);
     }
 
     @Override
     public void onResults(Bundle results) {
-        //voiceStart = false;
-        /*tv_mic.setText("Speak");
-        btnSpeak.setImageResource(R.drawable.mic);*/
 
         Log.i(LOG_TAG, "onResults");
         ArrayList<String> matches = results
@@ -301,7 +294,6 @@ public class ReadingActivity extends AppCompatActivity implements RecognitionLis
             resetSpeechRecognizer();
         else
             speech.startListening(recognizerIntent);
-
     }
 
     @Override

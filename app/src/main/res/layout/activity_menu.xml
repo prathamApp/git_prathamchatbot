@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="@drawable/a8"
+    android:background="@drawable/appbg"
     android:gravity="center"
     android:orientation="vertical"
     android:weightSum="10"
@@ -14,11 +14,11 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.8"
-        android:background="@color/blackTransparent"
+        android:background="@color/colorPrimary"
         android:gravity="center"
         android:text="Welcome"
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -38,7 +38,6 @@
             android:text="Select Module"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="@color/white"
             android:textSize="22sp"
             android:textStyle="bold" />
 
@@ -61,6 +60,7 @@
                     android:id="@+id/btn_chat"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
+                    android:elevation="5dp"
                     android:background="@drawable/ripple_effect"
                     android:paddingVertical="20dp"
                     android:scaleType="fitCenter"
@@ -72,7 +72,6 @@
                     android:layout_marginTop="5dp"
                     android:text="Chat"
                     android:textAlignment="center"
-                    android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -89,6 +88,7 @@
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:background="@drawable/ripple_effect"
+                    android:elevation="5dp"
                     android:paddingVertical="20dp"
                     android:scaleType="fitCenter"
                     android:src="@drawable/reading" />
@@ -99,7 +99,6 @@
                     android:layout_marginTop="5dp"
                     android:text="Reading"
                     android:textAlignment="center"
-                    android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 

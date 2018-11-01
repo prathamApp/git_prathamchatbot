@@ -3,8 +3,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:background="@drawable/dialog_admin_bg"
-    android:paddingVertical="20dp">
+    android:background="@drawable/card_bg"
+    android:paddingVertical="10dp">
 
     <TextView
         android:id="@+id/txt"
@@ -12,44 +12,123 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="10dp"
         android:gravity="center"
-        android:text="Chat Style"
+        android:text="Conversation Style"
         android:textColor="@color/simple_black"
         android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="150dp"
         android:layout_below="@id/txt"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:weightSum="2"
         android:layout_centerInParent="true"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="20dp"
+        android:orientation="vertical"
+        android:weightSum="3">
 
-        <Button
-            android:id="@+id/dialog_btn_chat"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:background="@drawable/ripple_effect"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginVertical="5dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
             android:gravity="center"
-            android:paddingVertical="10dp"
-            android:text="Chat"
-            android:textSize="15sp" />
+            android:layout_weight="1"
+            android:weightSum="3">
 
-        <Button
-            android:id="@+id/dialog_btn_convo"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:layout_toRightOf="@id/dialog_btn_chat"
-            android:background="@drawable/ripple_effect"
+            <Button
+                android:id="@+id/btn_chat_a"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:background="@drawable/ripple_effect"
+                android:layout_marginHorizontal="5dp"
+                android:gravity="center"
+                android:elevation="5dp"
+                android:text="A"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/iv_mode_a"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="5dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:src="@drawable/mode_a"
+                android:text="Chat"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginVertical="5dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
             android:gravity="center"
-            android:paddingVertical="10dp"
-            android:text="conversation"
-            android:textSize="15sp" />
+            android:layout_weight="1"
+            android:weightSum="3">
+
+            <Button
+                android:id="@+id/btn_chat_b"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:background="@drawable/ripple_effect"
+                android:layout_marginHorizontal="5dp"
+                android:gravity="center"
+                android:elevation="5dp"
+                android:text="B"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/iv_mode_b"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="5dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:src="@drawable/mode_b"
+                android:text="Chat"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginVertical="5dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:weightSum="3">
+
+            <Button
+                android:id="@+id/btn_chat_c"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:background="@drawable/ripple_effect"
+                android:layout_marginHorizontal="5dp"
+                android:gravity="center"
+                android:elevation="5dp"
+                android:text="C"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/iv_mode_c"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="5dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:src="@drawable/mode_c"
+                android:text="Chat"
+                android:textSize="15sp" />
+        </LinearLayout>
+
 
     </LinearLayout>
 

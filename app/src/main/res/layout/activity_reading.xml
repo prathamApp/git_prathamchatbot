@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/abg"
+    android:background="@drawable/appbg"
     android:orientation="vertical"
     android:weightSum="10">
 
@@ -10,11 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.8"
-        android:background="@color/blackTransparent"
+        android:background="@color/colorPrimary"
         android:gravity="center"
         android:text="Reading Section"
         android:textColor="@color/white"
-        android:textSize="25dp"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <LinearLayout

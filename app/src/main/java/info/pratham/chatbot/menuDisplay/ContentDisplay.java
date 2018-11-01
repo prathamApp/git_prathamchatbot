@@ -29,7 +29,7 @@ public class  ContentDisplay extends AppCompatActivity implements ContentClicked
     private RecyclerView recyclerView;
     private ContentAdapter contentAdapter;
     private List<ContentView> contentViewList;
-    String sdCardPathString, studentID,storyTitle;
+    String sdCardPathString, studentID,storyTitle,convoMode;
     public static String storiesDispLang,readType;
 
 
@@ -41,6 +41,7 @@ public class  ContentDisplay extends AppCompatActivity implements ContentClicked
         ButterKnife.bind(this);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         readType = "story";
+        convoMode = getIntent().getStringExtra("convoMode");
         setPath();
 
 //        studentID = getIntent().getStringExtra("StudentID");
@@ -124,6 +125,7 @@ public class  ContentDisplay extends AppCompatActivity implements ContentClicked
         mainNew.putExtra("contentId", contentId);
         mainNew.putExtra("studentID", studentID);
         mainNew.putExtra("contentName", contentName);
+        mainNew.putExtra("convoMode", convoMode);
         startActivity(mainNew);
     }
 

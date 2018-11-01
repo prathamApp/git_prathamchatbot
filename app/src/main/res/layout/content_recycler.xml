@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".menuDisplay.MenuDisplay"
+    tools:context=".menuDisplay.ContentDisplay"
     tools:showIn="@layout/activity_content_display">
 
     <android.support.v7.widget.RecyclerView

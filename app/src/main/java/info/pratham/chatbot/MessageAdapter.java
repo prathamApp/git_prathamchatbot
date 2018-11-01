@@ -13,7 +13,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static info.pratham.chatbot.MainActivity.playChat;
+import static info.pratham.chatbot.ReadChatbot.playChat;
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHolder> {
 

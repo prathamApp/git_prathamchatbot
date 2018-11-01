@@ -1,7 +1,6 @@
 package info.pratham.chatbot;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.media.AudioManager;
 import android.os.Bundle;
 import android.speech.RecognitionListener;
@@ -19,9 +18,7 @@ import com.nex3z.flowlayout.FlowLayout;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -40,21 +37,23 @@ public class ReadChatbot extends AppCompatActivity implements RecognitionListene
     FlowLayout readChatFlow;
     @BindView(R.id.btn_reading)
     ImageButton btn_reading;
+    @BindView(R.id.tv_title)
+    TextView tv_title;
 
     JSONArray conversation;
     private RecyclerView.Adapter mAdapter;
     private List messageList = new ArrayList();
     String question, answer;
-    int currentQueNo = 0, randomNumA, randomNumB;
-    boolean voiceStart = false;
-    private SpeechRecognizer speech = null;
+    int currentQueNos = 0, randomNumA, randomNumB;
+    static boolean voiceStart = false;
+    private static SpeechRecognizer speech = null;
     public RecognitionListener listener;
-    public MyTTS ttspeech;
-    String selectedLanguage,contentData,contentId,studentID,contentName;
+    public static MyTTS ttspeech;
+    String selectedLanguage, contentData, contentId, studentID, contentName;
     private Intent recognizerIntent;
-    private String LOG_TAG = "VoiceRecognitionActivity";
-    private AudioManager audioManager;
-    boolean correctArr[];
+    private String LOG_TAG = "VoiceRecognitionActivity", convoMode;
+    private static AudioManager audioManager;
+    boolean correctArr[],myMsg;
 
     private void resetSpeechRecognizer() {
         if (speech != null)
@@ -88,10 +87,14 @@ public class ReadChatbot extends AppCompatActivity implements RecognitionListene
         contentId = getIntent().getStringExtra("contentId");
         studentID = getIntent().getStringExtra("studentID");
         contentName = getIntent().getStringExtra("contentName");
+        convoMode = getIntent().getStringExtra("convoMode");
+
+        myMsg=true;
 
         ttspeech = new MyTTS(this, "en-IN");
         audioManager = (AudioManager) getSystemService(this.AUDIO_SERVICE);
         resetSpeechRecognizer();
+        tv_title.setText(contentName);
 
         recyclerView.setHasFixedSize(true);
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -104,12 +107,13 @@ public class ReadChatbot extends AppCompatActivity implements RecognitionListene
 
         try {
             conversation = new JSONArray(contentData);
-            randomNumA = getRandomNum(conversation.getJSONObject(currentQueNo).getJSONArray("PersonA").length());
+            displayNextQuestion(currentQueNos);
+/*            randomNumA = getRandomNum(conversation.getJSONObject(currentQueNo).getJSONArray("PersonA").length());
             randomNumB = getRandomNum(conversation.getJSONObject(currentQueNo).getJSONArray("PersonB").length());
             question = conversation.getJSONObject(currentQueNo).getJSONArray("PersonA").getJSONObject(randomNumA).getString("data");
             answer = conversation.getJSONObject(currentQueNo).getJSONArray("PersonB").getJSONObject(randomNumB).getString("data");
             addItemInConvo(question, false);
-            setAnswerText(answer);
+            setAnswerText(answer);*/
             //Toast.makeText(this, "Problem in getting conversation!!", Toast.LENGTH_SHORT).show();
         } catch (JSONException e) {
             e.printStackTrace();
@@ -133,41 +137,87 @@ public class ReadChatbot extends AppCompatActivity implements RecognitionListene
     private void stopSpeechInput() {
         speech.stopListening();
     }
+
     private void startSpeechInput() {
         setRecogniserIntent();
         speech.startListening(recognizerIntent);
     }
 
+    int cntr=0;
     @OnClick(R.id.btn_imgsend)
     public void sendMessage() {
-        if (voiceStart) {
-            btn_reading.setImageResource(R.drawable.mic);
-            voiceStart = false;
-            speech.stopListening();
+        btn_reading.setImageResource(R.drawable.mic);
+        voiceStart = false;
+        speech.stopListening();
+        resetSpeechRecognizer();
+        if (convoMode.equals("A")) {
+            addItemInConvo(answer, true);
+            currentQueNos += 1;
+            displayNextQuestion(currentQueNos);
+        } else if (convoMode.equals("B")) {
+            addItemInConvo(answer, true);
+            addItemInConvo(question, false);
+            currentQueNos += 1;
+            displayNextQuestion(currentQueNos);
+        } else if (convoMode.equals("C")) {
+            //if(cntr<1) {
+                if (myMsg) {
+                    myMsg = false;
+                    addItemInConvo(answer, true);
+                    setAnswerText(question);
+                } else {
+                    myMsg = true;
+                    addItemInConvo(question, false);
+                    currentQueNos += 1;
+                    displayNextQuestion(currentQueNos);
+                }
+/*            }else{
+                cntr=0;
+                currentQueNos += 1;
+                displayNextQuestion(currentQueNos);
+            }*/
         }
-        addItemInConvo(answer, true);
-        displayNextQuestion();
     }
 
-    private void displayNextQuestion() {
+    private void displayNextQuestion(int currentQueNo) {
         try {
-            if (currentQueNo < conversation.length()-1) {
-                currentQueNo += 1;
-                randomNumA = getRandomNum(conversation.getJSONObject(currentQueNo).getJSONArray("PersonA").length());
-                randomNumB = getRandomNum(conversation.getJSONObject(currentQueNo).getJSONArray("PersonB").length());
-                question = conversation.getJSONObject(currentQueNo).getJSONArray("PersonA").getJSONObject(randomNumA).getString("data");
-                answer = conversation.getJSONObject(currentQueNo).getJSONArray("PersonB").getJSONObject(randomNumB).getString("data");
-                addItemInConvo(question, false);
-                setAnswerText(answer);
-            }
-            else{
-                currentQueNo=0;
-                randomNumA = getRandomNum(conversation.getJSONObject(currentQueNo).getJSONArray("PersonA").length());
-                randomNumB = getRandomNum(conversation.getJSONObject(currentQueNo).getJSONArray("PersonB").length());
-                question = conversation.getJSONObject(currentQueNo).getJSONArray("PersonA").getJSONObject(randomNumA).getString("data");
-                answer = conversation.getJSONObject(currentQueNo).getJSONArray("PersonB").getJSONObject(randomNumB).getString("data");
-                addItemInConvo(question, false);
-                setAnswerText(answer);
+            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, AudioManager.ADJUST_UNMUTE, 0);
+            if (currentQueNo < conversation.length() - 1) {
+                if (convoMode.equals("A")) {
+                    randomNumA = getRandomNum(conversation.getJSONObject(currentQueNo).getJSONArray("PersonA").length());
+                    randomNumB = getRandomNum(conversation.getJSONObject(currentQueNo).getJSONArray("PersonB").length());
+                    question = conversation.getJSONObject(currentQueNo).getJSONArray("PersonA").getJSONObject(randomNumA).getString("data");
+                    answer = conversation.getJSONObject(currentQueNo).getJSONArray("PersonB").getJSONObject(randomNumB).getString("data");
+                    addItemInConvo(question, false);
+                    setAnswerText(answer);
+                } else if (convoMode.equals("B")) {
+                    randomNumA = getRandomNum(conversation.getJSONObject(currentQueNo).getJSONArray("PersonA").length());
+                    randomNumB = getRandomNum(conversation.getJSONObject(currentQueNo).getJSONArray("PersonB").length());
+                    question = conversation.getJSONObject(currentQueNo).getJSONArray("PersonB").getJSONObject(randomNumB).getString("data");
+                    answer = conversation.getJSONObject(currentQueNo).getJSONArray("PersonA").getJSONObject(randomNumA).getString("data");
+                    //addItemInConvo(question, true);
+                    setAnswerText(answer);
+                } else if (convoMode.equals("C")) {
+                    randomNumA = getRandomNum(conversation.getJSONObject(currentQueNo).getJSONArray("PersonA").length());
+                    randomNumB = getRandomNum(conversation.getJSONObject(currentQueNo).getJSONArray("PersonB").length());
+                    question = conversation.getJSONObject(currentQueNo).getJSONArray("PersonB").getJSONObject(randomNumB).getString("data");
+                    answer = conversation.getJSONObject(currentQueNo).getJSONArray("PersonA").getJSONObject(randomNumA).getString("data");
+                    //addItemInConvo(question, true);
+                    setAnswerText(answer);
+                    String temp;
+/*                    if(myMsg) {
+                        setAnswerText(answer);
+                    }else{
+                        temp = answer;
+                        answer=question;
+                        question=temp;
+                        setAnswerText(question);
+                    }*/
+                }
+
+            } else {
+                currentQueNos = 0;
+                displayNextQuestion(currentQueNos);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -267,8 +317,15 @@ public class ReadChatbot extends AppCompatActivity implements RecognitionListene
             final TextView myTextView = new TextView(this);
             myTextView.setText(word);
             myTextView.setTextSize(20);
-            myTextView.setTextColor(Color.YELLOW);
+            myTextView.setTextColor(getResources().getColor(R.color.colorAccentDark));
             readChatFlow.addView(myTextView);
+        }
+    }
+
+    public static void playChat(String chatText) {
+        if (!voiceStart) {
+            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, AudioManager.ADJUST_UNMUTE, 0);
+            ttspeech.playTTS(chatText);
         }
     }
 
@@ -324,16 +381,14 @@ public class ReadChatbot extends AppCompatActivity implements RecognitionListene
 
     @Override
     public void onError(int error) {
-        resetSpeechRecognizer();
-        speech.startListening(recognizerIntent);
-/*        voiceStart = false;
-        btn_reading.setImageResource(R.drawable.mic);*/
+        if (voiceStart) {
+            resetSpeechRecognizer();
+            speech.startListening(recognizerIntent);
+        }
     }
 
     @Override
     public void onResults(Bundle results) {
-/*        voiceStart = false;
-        btn_reading.setImageResource(R.drawable.mic);*/
 
         System.out.println("LogTag" + " onResults");
         ArrayList<String> matches = results
@@ -349,38 +404,25 @@ public class ReadChatbot extends AppCompatActivity implements RecognitionListene
         for (int j = 0; j < splitRes.length; j++) {
             for (int i = 0; i < splitQues.length; i++) {
                 if (splitRes[j].equalsIgnoreCase(splitQues[i]) && !correctArr[i]) {
-                    ((TextView) readChatFlow.getChildAt(i)).setTextColor(Color.GREEN);
+                    ((TextView) readChatFlow.getChildAt(i)).setTextColor(getResources().getColor(R.color.colorGreenDark));
                     correctArr[i] = true;
                     break;
                 }
             }
         }
 
-        if (!voiceStart)
+        if (!voiceStart) {
             resetSpeechRecognizer();
-        else
+            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, AudioManager.ADJUST_UNMUTE, 0);
+        } else
             speech.startListening(recognizerIntent);
-
-
-        /*        for (int i = 0; i < splitQues.length; i++) {
-            final TextView myView = (TextView) readChatFlow.getChildAt(i);
-            String resString = "" + myView.getText();
-            for (int j = 0; j < splitRes.length; j++) {
-                if (splitRes[j].equalsIgnoreCase(resString)) {
-                    myView.setTextColor(Color.GREEN);
-                }
-            }
-        }*/
-
     }
 
     @Override
     public void onPartialResults(Bundle partialResults) {
-
     }
 
     @Override
     public void onEvent(int eventType, Bundle params) {
-
     }
 }

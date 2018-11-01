@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/a8"
+    android:background="@drawable/appbg"
     android:weightSum="10"
     tools:context="info.pratham.chatbot.MainActivity">
 
@@ -12,11 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.8"
-        android:background="@color/blackTransparent"
+        android:background="@color/colorPrimary"
         android:gravity="center"
         android:text="Chat Section"
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <RelativeLayout
@@ -62,8 +62,8 @@
             android:layout_marginStart="60dp"
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="10dp"
-            android:elevation="2dp"
-            android:background="@drawable/blue_bg"
+            android:elevation="7dp"
+            android:background="@drawable/card_bg"
             android:layout_toStartOf="@+id/speakButton"
             android:layout_centerVertical="true">
             <TextView

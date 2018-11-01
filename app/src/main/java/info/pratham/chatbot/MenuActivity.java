@@ -18,6 +18,7 @@ import info.pratham.chatbot.menuDisplay.ContentDisplay;
 public class MenuActivity extends AppCompatActivity {
 
     public static String sysLang;
+    private String convoMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class MenuActivity extends AppCompatActivity {
 
     public void showLangDialog() {
 
+/*
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -45,11 +47,12 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+*/
                 sysLang = "en-IN";
                 Intent intent = new Intent(MenuActivity.this, ReadingActivity.class);
                 intent.putExtra("selectedLang", "English");
                 startActivity(intent);
-            }
+/*            }
         });
 
         btn_hin.setOnClickListener(new View.OnClickListener() {
@@ -61,7 +64,7 @@ public class MenuActivity extends AppCompatActivity {
                 intent.putExtra("selectedLang", "Hindi");
                 startActivity(intent);
             }
-        });
+        });*/
     }
 
     public void showChatDialog() {
@@ -73,28 +76,47 @@ public class MenuActivity extends AppCompatActivity {
         dialog.setCanceledOnTouchOutside(false);
         ButterKnife.bind(this);
 
-        Button btn_chat = (Button) dialog.findViewById(R.id.dialog_btn_chat);
-        Button btn_convo = (Button) dialog.findViewById(R.id.dialog_btn_convo);
+        Button btn_chat_a = (Button) dialog.findViewById(R.id.btn_chat_a);
+        Button btn_chat_b = (Button) dialog.findViewById(R.id.btn_chat_b);
+        Button btn_chat_c = (Button) dialog.findViewById(R.id.btn_chat_c);
         dialog.show();
 
-        btn_chat.setOnClickListener(new View.OnClickListener() {
+        btn_chat_a.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
                 sysLang = "en-IN";
-                startActivity(new Intent(MenuActivity.this, ContentDisplay.class));
-/*                Intent intent = new Intent(MenuActivity.this, MainActivity.class);
+                convoMode = "A";
+                Intent intent = new Intent(MenuActivity.this, ContentDisplay.class);
+                intent.putExtra("convoMode", convoMode);
+                startActivity(intent);
+            }
+        });
+
+        btn_chat_b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                sysLang = "en-IN";
+                convoMode = "B";
+                Intent intent = new Intent(MenuActivity.this, ContentDisplay.class);
+                intent.putExtra("convoMode", convoMode);
+                startActivity(intent);
+/*                Intent intent = new Intent(MenuActivity.this, ReadChatbot.class);
                 intent.putExtra("selectedLang", "English");
                 startActivity(intent);*/
             }
         });
 
-        btn_convo.setOnClickListener(new View.OnClickListener() {
+        btn_chat_c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
                 sysLang = "en-IN";
-                startActivity(new Intent(MenuActivity.this, ContentDisplay.class));
+                convoMode = "C";
+                Intent intent = new Intent(MenuActivity.this, ContentDisplay.class);
+                intent.putExtra("convoMode", convoMode);
+                startActivity(intent);
 /*                Intent intent = new Intent(MenuActivity.this, ReadChatbot.class);
                 intent.putExtra("selectedLang", "English");
                 startActivity(intent);*/
