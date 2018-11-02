@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.nex3z.flowlayout.FlowLayout;
@@ -51,7 +52,8 @@ public class ReadChatbot extends AppCompatActivity implements RecognitionListene
     public static MyTTS ttspeech;
     String selectedLanguage, contentData, contentId, studentID, contentName;
     private Intent recognizerIntent;
-    private String LOG_TAG = "VoiceRecognitionActivity", convoMode;
+    public static String convoMode;
+    private String LOG_TAG = "VoiceRecognitionActivity";
     private static AudioManager audioManager;
     boolean correctArr[],myMsg;
 
@@ -103,7 +105,6 @@ public class ReadChatbot extends AppCompatActivity implements RecognitionListene
         mAdapter = new MessageAdapter(messageList);
         recyclerView.setAdapter(mAdapter);
         //initialiseListeners();
-
 
         try {
             conversation = new JSONArray(contentData);

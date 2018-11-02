@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -12,6 +13,8 @@ import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -19,11 +22,20 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import info.pratham.chatbot.R;
 import info.pratham.chatbot.ReadChatbot;
 
 public class  ContentDisplay extends AppCompatActivity implements ContentClicked {
+
+    @BindView(R.id.iv_mode_a)
+    ImageView iv_mode_a;
+    @BindView(R.id.iv_mode_b)
+    ImageView iv_mode_b;
+    @BindView(R.id.iv_mode_c)
+    ImageView iv_mode_c;
 
     boolean flag = false;
     private RecyclerView recyclerView;
@@ -41,13 +53,11 @@ public class  ContentDisplay extends AppCompatActivity implements ContentClicked
         ButterKnife.bind(this);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         readType = "story";
-        convoMode = getIntent().getStringExtra("convoMode");
         setPath();
 
-//        studentID = getIntent().getStringExtra("StudentID");
+        selectModeA();
 
         recyclerView = (RecyclerView) findViewById(R.id.attendnce_recycler_view);
-
         contentViewList = new ArrayList<>();
         contentAdapter = new ContentAdapter(this, contentViewList, this);
 
@@ -56,21 +66,31 @@ public class  ContentDisplay extends AppCompatActivity implements ContentClicked
         recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(15), true));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(contentAdapter);
-
-/*        String appLang = getLanguage();
-
-        if ( appLang.equalsIgnoreCase("Punjabi")) {
-            storiesDispLang = "pun";
-        } else if (appLang.equalsIgnoreCase("Odiya")) {
-            storiesDispLang = "odiya";
-        } else if (appLang.equalsIgnoreCase("Gujarati")) {
-            storiesDispLang = "guj";
-        }else
-            storiesDispLang = "NA";*/
-
-
         prepareStories();
+    }
 
+    @OnClick(R.id.iv_mode_a)
+    public void selectModeA(){
+        convoMode = "A";
+        iv_mode_a.setBackground(getResources().getDrawable(R.drawable.mode_dark));
+        iv_mode_b.setBackground(getResources().getDrawable(R.drawable.mode_stroke));
+        iv_mode_c.setBackground(getResources().getDrawable(R.drawable.mode_stroke));
+    }
+
+    @OnClick(R.id.iv_mode_b)
+    public void selectModeB(){
+        convoMode = "B";
+        iv_mode_a.setBackground(getResources().getDrawable(R.drawable.mode_stroke));
+        iv_mode_b.setBackground(getResources().getDrawable(R.drawable.mode_dark));
+        iv_mode_c.setBackground(getResources().getDrawable(R.drawable.mode_stroke));
+    }
+
+    @OnClick(R.id.iv_mode_c)
+    public void selectModeC(){
+        convoMode = "C";
+        iv_mode_a.setBackground(getResources().getDrawable(R.drawable.mode_stroke));
+        iv_mode_b.setBackground(getResources().getDrawable(R.drawable.mode_stroke));
+        iv_mode_c.setBackground(getResources().getDrawable(R.drawable.mode_dark));
     }
 
     public void setPath() {

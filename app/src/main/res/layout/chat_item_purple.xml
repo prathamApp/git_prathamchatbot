@@ -7,7 +7,7 @@
     android:padding="2dp">
 
     <LinearLayout
-        android:id="@+id/arrow"
+        android:id="@+id/arrow1"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_margin="5dp"
@@ -15,7 +15,7 @@
         android:orientation="horizontal" />
 
     <TextView
-        android:layout_toRightOf="@id/arrow"
+        android:layout_toRightOf="@id/arrow1"
         android:background="@color/colorAccent"
         android:id="@+id/text"
         android:layout_width="wrap_content"

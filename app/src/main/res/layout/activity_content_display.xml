@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/appbg"
     android:orientation="vertical"
-    android:paddingBottom="2dp"
     android:weightSum="10">
 
     <TextView
@@ -12,20 +11,58 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_gravity="center"
-        android:layout_weight="0.8"
+        android:layout_weight="0.4"
         android:background="@color/colorPrimary"
         android:gravity="center"
         android:text="Content"
         android:textColor="@color/white"
         android:textSize="18sp"
-        android:textStyle="bold"
-        android:weightSum="6"/>
+        android:textStyle="bold"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="9.2"
-        android:layout_marginTop="2dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.8"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:orientation="horizontal"
+        android:textStyle="bold"
+        android:weightSum="3">
+
+        <ImageView
+            android:id="@+id/iv_mode_a"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/mode_stroke"
+            android:src="@drawable/mode_a"
+            android:paddingHorizontal="5dp"/>
+        <ImageView
+            android:id="@+id/iv_mode_b"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/mode_stroke"
+            android:src="@drawable/mode_b"
+            android:paddingHorizontal="5dp"/>
+        <ImageView
+            android:id="@+id/iv_mode_c"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/mode_stroke"
+            android:src="@drawable/mode_c"
+            android:paddingHorizontal="5dp"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8.8"
         android:paddingHorizontal="10dp">
 
         <include layout="@layout/content_recycler" />
